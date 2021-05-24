@@ -10,11 +10,9 @@ namespace Modelo
     {
         private int id;
         private int anioElectivo;
-        private int cantidadParciales;
         private string grado;
         private string seccion;
         private string turno;
-        private string profesor;
         private List<Materia> materias;
         private List<Estudiante> estudiantes;
     }

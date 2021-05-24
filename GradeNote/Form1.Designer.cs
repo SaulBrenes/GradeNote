@@ -30,16 +30,15 @@ namespace GradeNote
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.SuspendLayout();
@@ -52,36 +51,26 @@ namespace GradeNote
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
-            // splitContainer1.pnlDatosColegio
+            // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.flowLayoutPanel1);
             this.splitContainer1.Panel1.Controls.Add(this.label1);
-            this.splitContainer1.Size = new System.Drawing.Size(682, 441);
-            this.splitContainer1.SplitterDistance = 227;
+            this.splitContainer1.Panel1.Controls.Add(this.textBox2);
+            this.splitContainer1.Size = new System.Drawing.Size(592, 330);
+            this.splitContainer1.SplitterDistance = 197;
             this.splitContainer1.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(159, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Información de la institución";
             // 
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.label2);
             this.flowLayoutPanel1.Controls.Add(this.textBox1);
             this.flowLayoutPanel1.Controls.Add(this.label5);
-            this.flowLayoutPanel1.Controls.Add(this.textBox2);
-            this.flowLayoutPanel1.Controls.Add(this.label6);
             this.flowLayoutPanel1.Controls.Add(this.textBox3);
             this.flowLayoutPanel1.Controls.Add(this.label7);
             this.flowLayoutPanel1.Controls.Add(this.textBox4);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 27);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 27);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(199, 384);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(183, 291);
             this.flowLayoutPanel1.TabIndex = 1;
             // 
             // label2
@@ -100,20 +89,6 @@ namespace GradeNote
             this.textBox1.Size = new System.Drawing.Size(127, 23);
             this.textBox1.TabIndex = 1;
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(47, 32);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(127, 23);
-            this.textBox2.TabIndex = 3;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(47, 61);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(127, 23);
-            this.textBox3.TabIndex = 5;
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -123,36 +98,50 @@ namespace GradeNote
             this.label5.TabIndex = 6;
             this.label5.Text = "label5";
             // 
-            // textBox4
+            // textBox2
             // 
-            this.textBox4.Location = new System.Drawing.Point(47, 90);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(127, 23);
-            this.textBox4.TabIndex = 7;
+            this.textBox2.Location = new System.Drawing.Point(47, 32);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(127, 23);
+            this.textBox2.TabIndex = 3;
             // 
-            // label6
+            // textBox3
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(3, 58);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 15);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "label6";
+            this.textBox3.Location = new System.Drawing.Point(47, 32);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(127, 23);
+            this.textBox3.TabIndex = 5;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(3, 87);
+            this.label7.Location = new System.Drawing.Point(3, 58);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(38, 15);
             this.label7.TabIndex = 10;
             this.label7.Text = "label7";
             // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(47, 61);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(127, 23);
+            this.textBox4.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(27, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(159, 15);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Información de la institución";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(682, 441);
+            this.ClientSize = new System.Drawing.Size(592, 330);
             this.Controls.Add(this.splitContainer1);
             this.Name = "Form1";
             this.Text = "GradeNote";
@@ -174,7 +163,6 @@ namespace GradeNote
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBox4;

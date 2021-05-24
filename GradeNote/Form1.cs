@@ -16,5 +16,6 @@ namespace GradeNote
         {
             InitializeComponent();
         }
+
     }
 }

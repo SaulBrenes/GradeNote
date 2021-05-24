@@ -10,6 +10,7 @@ namespace Modelo
         private string municipio;
         private string departamento;
         private string nucleoEducativo;
+        private string profesor;
         private List<Grupo> grupos;
 
 

@@ -11,6 +11,7 @@ namespace Modelo
         private int id;
         private string nombres;
         private string apellidos;
+        private string codigo;
         private List<Asistencia> asistencias;
 
 
