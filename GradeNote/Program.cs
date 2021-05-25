@@ -1,3 +1,4 @@
+using CapaDatos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,8 @@ namespace GradeNote
         [STAThread]
         static void Main()
         {
+            Class1 c = new Class1();
+            c.loadData();
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

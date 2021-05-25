@@ -73,6 +73,7 @@ namespace GradeNote
             // 
             // splitContainer1
             // 
+            this.splitContainer1.Cursor = System.Windows.Forms.Cursors.VSplit;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
@@ -85,8 +86,8 @@ namespace GradeNote
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(767, 363);
-            this.splitContainer1.SplitterDistance = 254;
+            this.splitContainer1.Size = new System.Drawing.Size(629, 391);
+            this.splitContainer1.SplitterDistance = 227;
             this.splitContainer1.TabIndex = 0;
             // 
             // label7
@@ -116,10 +117,10 @@ namespace GradeNote
             this.flowLayoutPanel1.Controls.Add(this.txtProfesor);
             this.flowLayoutPanel1.Controls.Add(this.btnEditar);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, -2);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 26);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(254, 365);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(227, 365);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -265,7 +266,7 @@ namespace GradeNote
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(509, 363);
+            this.groupBox1.Size = new System.Drawing.Size(398, 391);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Grupos Activos:";
@@ -414,16 +415,16 @@ namespace GradeNote
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(149, 75);
+            this.comboBox1.Location = new System.Drawing.Point(131, 75);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(172, 23);
+            this.comboBox1.Size = new System.Drawing.Size(215, 23);
             this.comboBox1.TabIndex = 0;
             // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(767, 363);
+            this.ClientSize = new System.Drawing.Size(629, 391);
             this.Controls.Add(this.splitContainer1);
             this.Name = "Inicio";
             this.Text = "Noteacher";
