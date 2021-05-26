@@ -96,11 +96,11 @@ namespace GradeNote
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(5, 9);
+            this.label7.Location = new System.Drawing.Point(24, 9);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(254, 17);
+            this.label7.Size = new System.Drawing.Size(191, 17);
             this.label7.TabIndex = 1;
-            this.label7.Text = "Información de la institución Educativa:";
+            this.label7.Text = "Información de la institución:";
             // 
             // flowLayoutPanel1
             // 
@@ -127,6 +127,7 @@ namespace GradeNote
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 10);
             this.label1.Name = "label1";
@@ -137,16 +138,19 @@ namespace GradeNote
             // 
             // txtNombre
             // 
+            this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombre.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtNombre.Enabled = false;
             this.txtNombre.Location = new System.Drawing.Point(13, 36);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.ReadOnly = true;
+            this.txtNombre.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtNombre.Size = new System.Drawing.Size(180, 23);
             this.txtNombre.TabIndex = 1;
             // 
             // label2
             // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(13, 62);
             this.label2.Name = "label2";
@@ -157,16 +161,19 @@ namespace GradeNote
             // 
             // txtMunicipio
             // 
+            this.txtMunicipio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMunicipio.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtMunicipio.Enabled = false;
             this.txtMunicipio.Location = new System.Drawing.Point(13, 88);
             this.txtMunicipio.Name = "txtMunicipio";
             this.txtMunicipio.ReadOnly = true;
+            this.txtMunicipio.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtMunicipio.Size = new System.Drawing.Size(180, 23);
             this.txtMunicipio.TabIndex = 3;
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(13, 114);
             this.label3.Name = "label3";
@@ -177,16 +184,19 @@ namespace GradeNote
             // 
             // txtDepartamento
             // 
+            this.txtDepartamento.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDepartamento.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtDepartamento.Enabled = false;
             this.txtDepartamento.Location = new System.Drawing.Point(13, 140);
             this.txtDepartamento.Name = "txtDepartamento";
             this.txtDepartamento.ReadOnly = true;
+            this.txtDepartamento.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtDepartamento.Size = new System.Drawing.Size(180, 23);
             this.txtDepartamento.TabIndex = 5;
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(13, 166);
             this.label4.Name = "label4";
@@ -198,16 +208,19 @@ namespace GradeNote
             // 
             // txtDirector
             // 
+            this.txtDirector.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDirector.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtDirector.Enabled = false;
             this.txtDirector.Location = new System.Drawing.Point(13, 192);
             this.txtDirector.Name = "txtDirector";
             this.txtDirector.ReadOnly = true;
+            this.txtDirector.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtDirector.Size = new System.Drawing.Size(180, 23);
             this.txtDirector.TabIndex = 7;
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(13, 218);
             this.label5.Name = "label5";
@@ -217,16 +230,19 @@ namespace GradeNote
             // 
             // txtNucleo
             // 
+            this.txtNucleo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNucleo.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtNucleo.Enabled = false;
             this.txtNucleo.Location = new System.Drawing.Point(13, 236);
             this.txtNucleo.Name = "txtNucleo";
             this.txtNucleo.ReadOnly = true;
+            this.txtNucleo.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtNucleo.Size = new System.Drawing.Size(180, 23);
             this.txtNucleo.TabIndex = 9;
             // 
             // label6
             // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(13, 262);
             this.label6.Name = "label6";
@@ -236,11 +252,13 @@ namespace GradeNote
             // 
             // txtProfesor
             // 
+            this.txtProfesor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtProfesor.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtProfesor.Enabled = false;
             this.txtProfesor.Location = new System.Drawing.Point(13, 280);
             this.txtProfesor.Name = "txtProfesor";
             this.txtProfesor.ReadOnly = true;
+            this.txtProfesor.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.txtProfesor.Size = new System.Drawing.Size(180, 23);
             this.txtProfesor.TabIndex = 11;
             // 
@@ -312,7 +330,7 @@ namespace GradeNote
             this.flowLayoutPanel2.Controls.Add(this.label13);
             this.flowLayoutPanel2.Controls.Add(this.textBox4);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(83, 160);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(73, 178);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(5);
             this.flowLayoutPanel2.Size = new System.Drawing.Size(137, 191);

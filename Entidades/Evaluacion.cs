@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Modelo
+namespace Entidades
 {
-    class Materia
+    public class Evaluacion
     {
         private int id;
         private string nombre;
-        private List<Evaluacion> evaluaciones;
+        private int valor_estipulado;
+        private int numeroParcial;
+        private List<Nota> notas;
     }
 }

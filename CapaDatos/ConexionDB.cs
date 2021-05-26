@@ -1,23 +1,24 @@
 ﻿using System.Data;
 using System.Data.SQLite;
+using System.IO;
+
 namespace CapaDatos
 {
-    public class Class1
+    public class ConexionDB
     {
-        private string url = "Data Source=C:/Users/HP 14/source/repos/GradeNote/GradeNote/bin/Debug/Registros.db";
-        private string url2 = "Data Source=C:/Users/HP 14/source/repos/GradeNote/CapaDatos/Archivos/Registros.db"; 
+        private string url = "Data Source=Registros.db";
         private SQLiteConnection sql_con;
         private SQLiteCommand sql_cmd;
-        private DataSet DS = new DataSet();
 
-        // Haciendo conección
+        // Haciendo conección con la base de datos
         private void SetConnection()
         {
-            sql_con = new SQLiteConnection(url2);
+            sql_con = new SQLiteConnection(url);
         }
 
-        //Haciendo solicitud a la base de datos
-        private void ExecuteQuery(string txtQuery)
+        //Hace cambios a la base de datos
+        //Devuelve las cantidad de filas afectadas
+        public void ExecuteQuery(string txtQuery)
         {
             SetConnection();
             sql_con.Open();
@@ -27,6 +28,7 @@ namespace CapaDatos
             sql_con.Close();
         }
 
+        //Método que carga la base de datos
         public string loadData()
         {
             SetConnection();
@@ -36,7 +38,7 @@ namespace CapaDatos
             SQLiteDataAdapter DB = new SQLiteDataAdapter(comando, sql_con);
             DataTable DT = new DataTable();
             DB.Fill(DT);
-            string mensaje = $"La lista: {DT.Columns.Count}";
+            string mensaje = $"La lista: {DT.Columns.Count}" + "   ";
             sql_con.Close();
             return mensaje;
         }

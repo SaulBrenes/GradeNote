@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Modelo
+namespace Entidades
 {
-    class Grupo
+    public class Grupo
     {
         private int id;
         private int anioElectivo;

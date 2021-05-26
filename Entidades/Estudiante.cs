@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Modelo
+namespace Entidades
 {
-    class Estudiante
+    public class Estudiante
     {
         private int id;
         private string nombres;
