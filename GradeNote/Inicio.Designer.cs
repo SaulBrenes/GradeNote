@@ -62,6 +62,7 @@ namespace GradeNote
             this.button1 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -69,6 +70,7 @@ namespace GradeNote
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -86,8 +88,8 @@ namespace GradeNote
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(629, 391);
-            this.splitContainer1.SplitterDistance = 227;
+            this.splitContainer1.Size = new System.Drawing.Size(704, 403);
+            this.splitContainer1.SplitterDistance = 234;
             this.splitContainer1.TabIndex = 0;
             // 
             // label7
@@ -117,10 +119,10 @@ namespace GradeNote
             this.flowLayoutPanel1.Controls.Add(this.txtProfesor);
             this.flowLayoutPanel1.Controls.Add(this.btnEditar);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 26);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 38);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(227, 365);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(234, 365);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // label1
@@ -266,7 +268,7 @@ namespace GradeNote
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(398, 391);
+            this.groupBox1.Size = new System.Drawing.Size(466, 403);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Grupos Activos:";
@@ -420,11 +422,18 @@ namespace GradeNote
             this.comboBox1.Size = new System.Drawing.Size(215, 23);
             this.comboBox1.TabIndex = 0;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.Location = new System.Drawing.Point(129, 8);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(360, 150);
+            this.dataGridView1.TabIndex = 0;
+            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(629, 391);
+            this.ClientSize = new System.Drawing.Size(704, 403);
             this.Controls.Add(this.splitContainer1);
             this.Name = "Inicio";
             this.Text = "Noteacher";
@@ -439,6 +448,7 @@ namespace GradeNote
             this.groupBox1.PerformLayout();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -478,6 +488,7 @@ namespace GradeNote
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 
