@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
+using CapaDatos;
+using Entidades;
 
 namespace GradeNote
 {
@@ -20,6 +22,9 @@ namespace GradeNote
             }
             else
             {
+                Colegio colegio = new Colegio(txtNombre.Text, txtDirector.Text, txtMunicipio.Text, txtDepartamento.Text, txtNucleo.Text, txtProfesor.Text);
+                ColegioDB cbd = new ColegioDB();
+                cbd.ActualizarColegio(colegio);
                 edicionDeTxt(!false);
                 btnEditar.Text = "Editar";
                 
