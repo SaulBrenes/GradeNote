@@ -36,19 +36,18 @@ namespace CapaDatos
             sql_con.Close();
         }
 
-        //Método que carga la base de datos
-        public string loadData()
+        //Método que carga una tabla de la base de datos
+        public DataTable loadData(string comando)
         {
             SetConnection();
             sql_con.Open();
             sql_cmd = sql_con.CreateCommand();
-            string comando = "SELECT * FROM Colegio";
             SQLiteDataAdapter DB = new SQLiteDataAdapter(comando, sql_con);
             DataTable DT = new DataTable();
             DB.Fill(DT);
-            string mensaje = $"La lista: {DT.Columns.Count}" + $"  {url}";
+            //string mensaje = $"La lista: {DT.Columns.Count}" + $"  {url}";
             sql_con.Close();
-            return mensaje;
+            return DT;
         }
 
         public string CreadorUrl()

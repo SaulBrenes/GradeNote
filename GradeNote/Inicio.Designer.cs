@@ -51,17 +51,15 @@ namespace GradeNote
             this.btnAgregar = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtGrado = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtTurno = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtAnio = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbGrupos = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -281,7 +279,7 @@ namespace GradeNote
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.comboBox1);
+            this.groupBox1.Controls.Add(this.cmbGrupos);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
@@ -317,23 +315,22 @@ namespace GradeNote
             this.btnAgregar.TabIndex = 5;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.flowLayoutPanel2.Controls.Add(this.label10);
-            this.flowLayoutPanel2.Controls.Add(this.textBox1);
-            this.flowLayoutPanel2.Controls.Add(this.label11);
-            this.flowLayoutPanel2.Controls.Add(this.textBox2);
+            this.flowLayoutPanel2.Controls.Add(this.txtGrado);
             this.flowLayoutPanel2.Controls.Add(this.label12);
-            this.flowLayoutPanel2.Controls.Add(this.textBox3);
+            this.flowLayoutPanel2.Controls.Add(this.txtTurno);
             this.flowLayoutPanel2.Controls.Add(this.label13);
-            this.flowLayoutPanel2.Controls.Add(this.textBox4);
+            this.flowLayoutPanel2.Controls.Add(this.txtAnio);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(73, 178);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(137, 191);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(137, 152);
             this.flowLayoutPanel2.TabIndex = 4;
             // 
             // label10
@@ -341,68 +338,51 @@ namespace GradeNote
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(8, 5);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(42, 15);
+            this.label10.Size = new System.Drawing.Size(54, 15);
             this.label10.TabIndex = 0;
-            this.label10.Text = "Grado:";
+            this.label10.Text = "Nombre:";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // txtGrado
             // 
-            this.textBox1.Location = new System.Drawing.Point(8, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(115, 23);
-            this.textBox1.TabIndex = 1;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(8, 49);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(52, 15);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "Sección:";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(8, 67);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(115, 23);
-            this.textBox2.TabIndex = 3;
+            this.txtGrado.Location = new System.Drawing.Point(8, 23);
+            this.txtGrado.Name = "txtGrado";
+            this.txtGrado.Size = new System.Drawing.Size(115, 23);
+            this.txtGrado.TabIndex = 1;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(8, 93);
+            this.label12.Location = new System.Drawing.Point(8, 49);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(41, 15);
             this.label12.TabIndex = 4;
             this.label12.Text = "Turno:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox3
+            // txtTurno
             // 
-            this.textBox3.Location = new System.Drawing.Point(8, 111);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(115, 23);
-            this.textBox3.TabIndex = 5;
+            this.txtTurno.Location = new System.Drawing.Point(8, 67);
+            this.txtTurno.Name = "txtTurno";
+            this.txtTurno.Size = new System.Drawing.Size(115, 23);
+            this.txtTurno.TabIndex = 5;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(8, 137);
+            this.label13.Location = new System.Drawing.Point(8, 93);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(73, 15);
             this.label13.TabIndex = 6;
             this.label13.Text = "Año Lectivo:";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox4
+            // txtAnio
             // 
-            this.textBox4.Location = new System.Drawing.Point(8, 155);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(115, 23);
-            this.textBox4.TabIndex = 7;
+            this.txtAnio.Location = new System.Drawing.Point(8, 111);
+            this.txtAnio.Name = "txtAnio";
+            this.txtAnio.Size = new System.Drawing.Size(115, 23);
+            this.txtAnio.TabIndex = 7;
             // 
             // label9
             // 
@@ -432,13 +412,13 @@ namespace GradeNote
             this.label8.TabIndex = 1;
             this.label8.Text = "Grupos creados:";
             // 
-            // comboBox1
+            // cmbGrupos
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(131, 75);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(215, 23);
-            this.comboBox1.TabIndex = 0;
+            this.cmbGrupos.FormattingEnabled = true;
+            this.cmbGrupos.Location = new System.Drawing.Point(115, 75);
+            this.cmbGrupos.Name = "cmbGrupos";
+            this.cmbGrupos.Size = new System.Drawing.Size(231, 23);
+            this.cmbGrupos.TabIndex = 0;
             // 
             // dataGridView1
             // 
@@ -491,7 +471,7 @@ namespace GradeNote
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbGrupos;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnEliminar;
@@ -499,13 +479,11 @@ namespace GradeNote
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtGrado;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtTurno;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtAnio;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Windows.Forms;
 using CapaDatos;
 using Entidades;
@@ -10,6 +11,11 @@ namespace GradeNote
         public Inicio()
         {
             InitializeComponent();
+            GrupoDB grupoDB = new GrupoDB();
+            DataTable DT = grupoDB.ObtenerGrupos();
+            cmbGrupos.DataSource = DT;
+            cmbGrupos.DisplayMember = "nombre";
+            cmbGrupos.ValueMember = "id";
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -46,6 +52,14 @@ namespace GradeNote
             txtNucleo.Enabled = !bandera;
             txtProfesor.ReadOnly = bandera;
             txtProfesor.Enabled = !bandera;
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            int anio = Int32.Parse(txtAnio.Text);
+            Grupo g = new Grupo(txtGrado.Text, txtTurno.Text, anio);
+            GrupoDB db = new GrupoDB();
+            db.CrearGrupo(g);
         }
     }
 }
