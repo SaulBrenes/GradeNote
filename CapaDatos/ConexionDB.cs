@@ -6,7 +6,16 @@ namespace CapaDatos
 {
     public class ConexionDB
     {
-        private string url = "Data Source=Registros.db";
+        //Constructor que inicializa la url a ocupar para las conexiones
+        public ConexionDB()
+        {
+            this.url = CreadorUrl();
+        }
+
+        //Elementos necesarios para conectar con la base de datos
+        private string inicio = "Data Source=";
+        private string fin = "CapaDatos/Archivos/Registros.db";
+        private string url;
         private SQLiteConnection sql_con;
         private SQLiteCommand sql_cmd;
 
@@ -17,7 +26,6 @@ namespace CapaDatos
         }
 
         //Hace cambios a la base de datos
-        //Devuelve las cantidad de filas afectadas
         public void ExecuteQuery(string txtQuery)
         {
             SetConnection();
@@ -38,9 +46,29 @@ namespace CapaDatos
             SQLiteDataAdapter DB = new SQLiteDataAdapter(comando, sql_con);
             DataTable DT = new DataTable();
             DB.Fill(DT);
-            string mensaje = $"La lista: {DT.Columns.Count}" + "   ";
+            string mensaje = $"La lista: {DT.Columns.Count}" + $"  {url}";
             sql_con.Close();
             return mensaje;
+        }
+
+        public string CreadorUrl()
+        {
+            //Obteniendo direccion actual
+            string direccion = Directory.GetCurrentDirectory();
+            //Separando la direccion
+            string[] cortado = direccion.Split("\\");
+
+            //Creando una nueva direccion valida
+            string temp = inicio;
+            for (int i = 0; i < cortado.Length; i++){
+                 temp += $"{cortado[i]}/";
+                if (cortado[i].Equals("GradeNote"))
+                {
+                    break;
+                }
+            }
+            //Retornando direccion valida
+            return $"{temp}{fin}";
         }
     }
 }

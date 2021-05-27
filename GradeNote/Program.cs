@@ -16,17 +16,17 @@ namespace GradeNote
         [STAThread]
         static void Main()
         {
-            //ConexionDB c = new ConexionDB();
-            //MessageBox.Show(c.loadData());
-            Colegio c = new Colegio();
-            ColegioDB cbd = new ColegioDB();
-            c.nombre = "a";
-            c.profesor = "b";
-            c.municipio = "c";
-            c.departamento = "d";
-            c.director = "e";
-            c.nucleoEducativo = "f";
-            cbd.ActualizarColegio(c);
+            ConexionDB c = new ConexionDB();
+            MessageBox.Show(c.loadData());
+            //Colegio c = new Colegio();
+            //ColegioDB cbd = new ColegioDB();
+            //c.nombre = "a";
+            //c.profesor = "b";
+            //c.municipio = "c";
+            //c.departamento = "d";
+            //c.director = "e";
+            //c.nucleoEducativo = "f";
+            //cbd.ActualizarColegio(c);
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
