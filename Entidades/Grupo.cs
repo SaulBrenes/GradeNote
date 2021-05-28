@@ -20,10 +20,12 @@ namespace Entidades
             this.anioElectivo = anio;
         }
 
+        public Grupo(){}
+
         //propiedades
         public int Id { get => id; set => id = value; }
         public int AnioElectivo { get => anioElectivo; set => anioElectivo = value; }
-        public string Grado { get => nombre; set => nombre = value; }
+        public string Nombre { get => nombre; set => nombre = value; }
         public string Turno { get => turno; set => turno = value; }
         public List<Materia> Materias { get => materias; set => materias = value; }
         public List<Estudiante> Estudiantes { get => estudiantes; set => estudiantes = value; }

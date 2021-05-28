@@ -11,7 +11,7 @@ namespace CapaDatos
     {
         public void CrearGrupo(Grupo grupo)
         {
-            string sentencia = $"INSERT INTO Grupos(nombre,turno,anio) VALUES (\"{grupo.Grado}\",\"{grupo.Turno}\",\"{grupo.AnioElectivo}\")";
+            string sentencia = $"INSERT INTO Grupos(nombre,turno,anio) VALUES (\"{grupo.Nombre}\",\"{grupo.Turno}\",\"{grupo.AnioElectivo}\")";
             this.ExecuteQuery(sentencia);
         }
 

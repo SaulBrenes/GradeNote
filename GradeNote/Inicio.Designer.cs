@@ -86,7 +86,7 @@ namespace GradeNote
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(704, 403);
+            this.splitContainer1.Size = new System.Drawing.Size(704, 396);
             this.splitContainer1.SplitterDistance = 234;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -102,6 +102,8 @@ namespace GradeNote
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel1.AutoScroll = true;
             this.flowLayoutPanel1.Controls.Add(this.label1);
             this.flowLayoutPanel1.Controls.Add(this.txtNombre);
@@ -116,7 +118,6 @@ namespace GradeNote
             this.flowLayoutPanel1.Controls.Add(this.label6);
             this.flowLayoutPanel1.Controls.Add(this.txtProfesor);
             this.flowLayoutPanel1.Controls.Add(this.btnEditar);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 38);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(10);
@@ -125,7 +126,8 @@ namespace GradeNote
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(13, 10);
             this.label1.Name = "label1";
@@ -136,7 +138,7 @@ namespace GradeNote
             // 
             // txtNombre
             // 
-            this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNombre.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtNombre.Location = new System.Drawing.Point(13, 36);
@@ -148,7 +150,8 @@ namespace GradeNote
             // 
             // label2
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(13, 62);
             this.label2.Name = "label2";
@@ -159,7 +162,7 @@ namespace GradeNote
             // 
             // txtMunicipio
             // 
-            this.txtMunicipio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtMunicipio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMunicipio.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtMunicipio.Location = new System.Drawing.Point(13, 88);
@@ -171,7 +174,8 @@ namespace GradeNote
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(13, 114);
             this.label3.Name = "label3";
@@ -182,7 +186,7 @@ namespace GradeNote
             // 
             // txtDepartamento
             // 
-            this.txtDepartamento.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtDepartamento.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDepartamento.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtDepartamento.Location = new System.Drawing.Point(13, 140);
@@ -194,7 +198,8 @@ namespace GradeNote
             // 
             // label4
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(13, 166);
             this.label4.Name = "label4";
@@ -206,7 +211,7 @@ namespace GradeNote
             // 
             // txtDirector
             // 
-            this.txtDirector.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtDirector.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDirector.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtDirector.Location = new System.Drawing.Point(13, 192);
@@ -218,7 +223,8 @@ namespace GradeNote
             // 
             // label5
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(13, 218);
             this.label5.Name = "label5";
@@ -228,7 +234,7 @@ namespace GradeNote
             // 
             // txtNucleo
             // 
-            this.txtNucleo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtNucleo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNucleo.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtNucleo.Location = new System.Drawing.Point(13, 236);
@@ -240,7 +246,8 @@ namespace GradeNote
             // 
             // label6
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(13, 262);
             this.label6.Name = "label6";
@@ -250,7 +257,7 @@ namespace GradeNote
             // 
             // txtProfesor
             // 
-            this.txtProfesor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtProfesor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtProfesor.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txtProfesor.Location = new System.Drawing.Point(13, 280);
@@ -262,6 +269,8 @@ namespace GradeNote
             // 
             // btnEditar
             // 
+            this.btnEditar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditar.Location = new System.Drawing.Point(13, 309);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(180, 23);
@@ -272,6 +281,9 @@ namespace GradeNote
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.btnEliminar);
             this.groupBox1.Controls.Add(this.btnEditGroup);
             this.groupBox1.Controls.Add(this.btnAgregar);
@@ -280,7 +292,6 @@ namespace GradeNote
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.cmbGrupos);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
@@ -291,7 +302,7 @@ namespace GradeNote
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(261, 278);
+            this.btnEliminar.Location = new System.Drawing.Point(369, 300);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(75, 23);
             this.btnEliminar.TabIndex = 7;
@@ -300,7 +311,7 @@ namespace GradeNote
             // 
             // btnEditGroup
             // 
-            this.btnEditGroup.Location = new System.Drawing.Point(261, 228);
+            this.btnEditGroup.Location = new System.Drawing.Point(280, 300);
             this.btnEditGroup.Name = "btnEditGroup";
             this.btnEditGroup.Size = new System.Drawing.Size(75, 23);
             this.btnEditGroup.TabIndex = 6;
@@ -309,7 +320,7 @@ namespace GradeNote
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(261, 183);
+            this.btnAgregar.Location = new System.Drawing.Point(182, 300);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 5;
@@ -327,7 +338,7 @@ namespace GradeNote
             this.flowLayoutPanel2.Controls.Add(this.label13);
             this.flowLayoutPanel2.Controls.Add(this.txtAnio);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(73, 178);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(274, 117);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(5);
             this.flowLayoutPanel2.Size = new System.Drawing.Size(137, 152);
@@ -387,7 +398,7 @@ namespace GradeNote
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(25, 146);
+            this.label9.Location = new System.Drawing.Point(303, 77);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(52, 15);
             this.label9.TabIndex = 3;
@@ -395,7 +406,7 @@ namespace GradeNote
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(193, 117);
+            this.button1.Location = new System.Drawing.Point(65, 211);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 2;
@@ -415,9 +426,9 @@ namespace GradeNote
             // cmbGrupos
             // 
             this.cmbGrupos.FormattingEnabled = true;
-            this.cmbGrupos.Location = new System.Drawing.Point(115, 75);
+            this.cmbGrupos.Location = new System.Drawing.Point(41, 164);
             this.cmbGrupos.Name = "cmbGrupos";
-            this.cmbGrupos.Size = new System.Drawing.Size(231, 23);
+            this.cmbGrupos.Size = new System.Drawing.Size(115, 23);
             this.cmbGrupos.TabIndex = 0;
             // 
             // dataGridView1
