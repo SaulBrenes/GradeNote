@@ -23,5 +23,6 @@ namespace Entidades
             this.profesor = profesor;
         } 
 
+        public Colegio() { }
     }
 }

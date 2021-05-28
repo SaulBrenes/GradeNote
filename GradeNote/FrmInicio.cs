@@ -4,13 +4,16 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using CapaDatos;
+using CapaPresentacion;
 using Entidades;
 
 namespace GradeNote
 {
-    public partial class Inicio : Form
+    public partial class FrmInicio : Form
     {
-        public Inicio()
+        private Colegio colegio = new Colegio();
+        private List<Grupo> items;
+        public FrmInicio()
         {
             InitializeComponent();
             ActualizarComboBox();
@@ -36,6 +39,13 @@ namespace GradeNote
         
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if (btnAgregar.Text.Equals("Agregar"))
+            {
+                LimpiarTxtGrupo();
+                btnAgregar.Text = "Guardar";
+                return;
+            }
+            
             int anio = Int32.Parse(txtAnio.Text);
             Grupo g = new Grupo(txtGrado.Text, txtTurno.Text, anio);
             GrupoDB db = new GrupoDB();
@@ -44,6 +54,7 @@ namespace GradeNote
             //Limpiando seleccion para seleccionar el nuevo grupo creado
             cmbGrupos.SelectedText = "";
             cmbGrupos.SelectedText= g.Nombre;
+            btnAgregar.Text=  "Agregar";
         }
 
         //Metodos para actualizar vista
@@ -51,24 +62,16 @@ namespace GradeNote
         {
             GrupoDB grupoDB = new GrupoDB();
             DataTable DT = grupoDB.ObtenerGrupos();
-            
             cmbGrupos.DataSource = DT;
             cmbGrupos.DisplayMember = "nombre";
             cmbGrupos.ValueMember = "id";
 
-            List<Grupo> items = DT.AsEnumerable().Select(row =>
+            items = DT.AsEnumerable().Select(row =>
             new Grupo
             {
                 Id = (int)row.Field<Int64>("id"),
                 Nombre = row.Field<string>("nombre")
             }).ToList();
-
-            string lista = "";
-            foreach(Grupo i in items)
-            {
-                lista+=$"{i.Id}. {i.Nombre} \n";
-            }
-            MessageBox.Show(lista);
         }
 
         private void edicionDeTxt(bool bandera)
@@ -85,6 +88,22 @@ namespace GradeNote
             txtNucleo.Enabled = !bandera;
             txtProfesor.ReadOnly = bandera;
             txtProfesor.Enabled = !bandera;
+        }
+
+
+        private void LimpiarTxtGrupo()
+        {
+            txtGrado.Text = "";
+            txtTurno.Text = "";
+            txtAnio.Text = "";
+        }
+
+        private void btnIngresar_Click(object sender, EventArgs e)
+        {
+            FrmGrupo frmGrupo = new FrmGrupo();
+            int grupoAbierto = cmbGrupos.SelectedIndex;
+            frmGrupo.Text += $" {items.ElementAt(grupoAbierto).Nombre}.";
+            frmGrupo.Show();
         }
     }
 }
