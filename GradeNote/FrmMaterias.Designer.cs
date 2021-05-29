@@ -1,7 +1,7 @@
 ﻿
 namespace CapaPresentacion
 {
-    partial class Materias
+    partial class FrmMaterias
     {
         /// <summary>
         /// Required designer variable.
@@ -147,7 +147,7 @@ namespace CapaPresentacion
             this.dgvEstudiantes.Size = new System.Drawing.Size(621, 135);
             this.dgvEstudiantes.TabIndex = 5;
             // 
-            // Materias
+            // FrmMaterias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -157,7 +157,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvMaterias);
-            this.Name = "Materias";
+            this.Name = "FrmMaterias";
             this.Text = "Materias";
             ((System.ComponentModel.ISupportInitialize)(this.dgvMaterias)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);

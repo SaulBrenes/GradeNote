@@ -306,16 +306,16 @@ namespace GradeNote
             // 
             // flowLayoutPanel3
             // 
-            this.flowLayoutPanel3.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.flowLayoutPanel3.AutoSize = true;
             this.flowLayoutPanel3.Controls.Add(this.btnAgregar);
             this.flowLayoutPanel3.Controls.Add(this.btnEditGroup);
             this.flowLayoutPanel3.Controls.Add(this.btnEliminar);
             this.flowLayoutPanel3.Controls.Add(this.button2);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 348);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 354);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Padding = new System.Windows.Forms.Padding(35, 0, 6, 0);
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(463, 43);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(460, 34);
             this.flowLayoutPanel3.TabIndex = 8;
             // 
             // btnAgregar

@@ -52,6 +52,7 @@ namespace CapaPresentacion
             this.estudiantesToolStripMenuItem.Name = "estudiantesToolStripMenuItem";
             this.estudiantesToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
             this.estudiantesToolStripMenuItem.Text = "Estudiantes";
+            this.estudiantesToolStripMenuItem.Click += new System.EventHandler(this.estudiantesToolStripMenuItem_Click);
             // 
             // asistenciasToolStripMenuItem
             // 
@@ -59,6 +60,7 @@ namespace CapaPresentacion
             this.asistenciasToolStripMenuItem.Name = "asistenciasToolStripMenuItem";
             this.asistenciasToolStripMenuItem.Size = new System.Drawing.Size(113, 22);
             this.asistenciasToolStripMenuItem.Text = "Asistencias";
+            this.asistenciasToolStripMenuItem.Click += new System.EventHandler(this.asistenciaToolStripMenuItem_Click);
             // 
             // estadisticasToolStripMenuItem
             // 
@@ -66,6 +68,7 @@ namespace CapaPresentacion
             this.estadisticasToolStripMenuItem.Name = "estadisticasToolStripMenuItem";
             this.estadisticasToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.estadisticasToolStripMenuItem.Text = "Estadisticas";
+            this.estadisticasToolStripMenuItem.Click += new System.EventHandler(this.estadisticaToolStripMenuItem_Click);
             // 
             // boletinToolStripMenuItem
             // 
@@ -73,6 +76,7 @@ namespace CapaPresentacion
             this.boletinToolStripMenuItem.Name = "boletinToolStripMenuItem";
             this.boletinToolStripMenuItem.Size = new System.Drawing.Size(78, 22);
             this.boletinToolStripMenuItem.Text = "Boletin";
+            this.boletinToolStripMenuItem.Click += new System.EventHandler(this.boletinToolStripMenuItem_Click); 
             // 
             // menuStrip1
             // 
