@@ -1,33 +1,27 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Entidades
 {
     public class Grupo
     {
-        private int id;
-        private int anioElectivo;
-        private string nombre;
-        private string turno;
-        private List<Materia> materias;
-        private List<Estudiante> estudiantes;
+        public Int64 id { get; set; }
+        public string nombre { get; set; }
+        public string turno { get; set; }
+        public Int64 anio { get; set; }
+        public List<Materia> materias { get; set; }
+        public List<Estudiante> estudiantes { get; set; }
 
 
         //Constructor
-        public Grupo(string nombre, string turno, int anio)
+        public Grupo(string nombre, string turno, Int64 anio)
         {
             this.nombre = nombre;
             this.turno = turno;
-            this.anioElectivo = anio;
+            this.anio = anio;
         }
 
         public Grupo(){}
 
-        //propiedades
-        public int Id { get => id; set => id = value; }
-        public int AnioElectivo { get => anioElectivo; set => anioElectivo = value; }
-        public string Nombre { get => nombre; set => nombre = value; }
-        public string Turno { get => turno; set => turno = value; }
-        public List<Materia> Materias { get => materias; set => materias = value; }
-        public List<Estudiante> Estudiantes { get => estudiantes; set => estudiantes = value; }
     }
 }

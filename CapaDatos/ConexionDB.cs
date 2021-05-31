@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.SQLite;
 using System.IO;
 
@@ -36,7 +38,7 @@ namespace CapaDatos
             sql_con.Close();
         }
 
-        //Método que carga una tabla de la base de datos
+        //Método que obtiene informacion en base de datos y lo guarda en DataTable
         public DataTable loadData(string comando)
         {
             SetConnection();
@@ -45,20 +47,21 @@ namespace CapaDatos
             SQLiteDataAdapter DB = new SQLiteDataAdapter(comando, sql_con);
             DataTable DT = new DataTable();
             DB.Fill(DT);
-            //string mensaje = $"La lista: {DT.Columns.Count}" + $"  {url}";
             sql_con.Close();
             return DT;
         }
 
         public string CreadorUrl()
         {
-            //Obteniendo direccion actual
+            //Obteniendo direccion actual del archivo que se esta ejecutando
             string direccion = Directory.GetCurrentDirectory();
+
             //Separando la direccion
             string[] cortado = direccion.Split("\\");
 
             //Creando una nueva direccion valida
             string temp = inicio;
+
             for (int i = 0; i < cortado.Length; i++){
                  temp += $"{cortado[i]}/";
                 if (cortado[i].Equals("GradeNote"))
@@ -66,8 +69,47 @@ namespace CapaDatos
                     break;
                 }
             }
+
             //Retornando direccion valida
             return $"{temp}{fin}";
+        }
+
+        //Convierte un DataTable en una List<T>
+        public List<T> ConvertirDataTabletoClase<T>(DataTable dt)
+        {
+            List<T> data = new List<T>();
+
+            foreach(DataRow row in dt.Rows)
+            {
+                T item = GetItem<T>(row);
+                data.Add(item);
+            }
+
+            return data;
+        }
+
+        //Obtener un item de un DataTable
+        private static T GetItem<T> (DataRow dr)
+        {
+            Type temp = typeof(T);
+            T obj = Activator.CreateInstance<T>();
+
+            foreach(DataColumn column in dr.Table.Columns)
+            {
+                foreach(System.Reflection.PropertyInfo pro in temp.GetProperties())
+                {
+                    if(pro.Name == column.ColumnName)
+                    {
+                        pro.SetValue(obj, dr[column.ColumnName], null);
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+            }
+
+            return obj;
         }
     }
 }

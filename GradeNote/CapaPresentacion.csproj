@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CapaDatos\CapaDatos.csproj" />
+    <ProjectReference Include="..\CapaNegocios\CapaNegocios.csproj" />
   </ItemGroup>
 
 </Project>

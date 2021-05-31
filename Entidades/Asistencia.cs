@@ -8,15 +8,14 @@ namespace Entidades
 {
     class Asistencia
     {
+        private int id;
+        private int id_estudiante;
         private DateTime fecha;
-        private Tipo tipo;
+        private TipoAsistencia tipo;
 
-        public enum Tipo
-        {
-            Ausente = 0,
-            Presente = 1,
-            Justificado =2, 
-            Tardio = 3
-        }
+        public int Id { get => id; set => id = value; }
+        public int Id_estudiante { get => id_estudiante; set => id_estudiante = value; }
+        public DateTime Fecha { get => fecha; set => fecha = value; }
+        public TipoAsistencia Tipo { get => tipo; set => tipo = value; }
     }
 }
