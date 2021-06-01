@@ -76,7 +76,7 @@ namespace CapaPresentacion
             this.boletinToolStripMenuItem.Name = "boletinToolStripMenuItem";
             this.boletinToolStripMenuItem.Size = new System.Drawing.Size(78, 22);
             this.boletinToolStripMenuItem.Text = "Boletin";
-            this.boletinToolStripMenuItem.Click += new System.EventHandler(this.boletinToolStripMenuItem_Click); 
+            this.boletinToolStripMenuItem.Click += new System.EventHandler(this.boletinToolStripMenuItem_Click);
             // 
             // menuStrip1
             // 
@@ -88,7 +88,7 @@ namespace CapaPresentacion
             this.boletinToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(641, 26);
+            this.menuStrip1.Size = new System.Drawing.Size(761, 26);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -96,12 +96,13 @@ namespace CapaPresentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(641, 295);
+            this.ClientSize = new System.Drawing.Size(761, 479);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmGrupo";
             this.Text = "Grupo";
+            this.Load += new System.EventHandler(this.FrmGrupo_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

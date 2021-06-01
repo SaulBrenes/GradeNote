@@ -49,7 +49,16 @@ namespace GradeNote
             }
             else
             {
-                Colegio colegio = new Colegio(txtNombre.Text, txtDirector.Text, txtMunicipio.Text, txtDepartamento.Text, txtNucleo.Text, txtProfesor.Text);
+                //Colegio colegio = new Colegio(txtNombre.Text, txtDirector.Text, txtMunicipio.Text, txtDepartamento.Text, txtNucleo.Text, txtProfesor.Text);
+                Colegio colegio = new Colegio
+                {
+                    nombre = txtNombre.Text,
+                    director = txtDirector.Text,
+                    municipio = txtMunicipio.Text,
+                    departamento = txtDepartamento.Text,
+                    profesor = txtProfesor.Text,
+                    nucleoEducativo = txtNucleo.Text
+                };
                 Ncolegio.EditarDatosColegio(colegio);
                 actualizarColegio();
                 edicionDeTxt(!false, 0);
@@ -89,10 +98,12 @@ namespace GradeNote
         }
 
         //Método para ingresar al formulario grupo
+        //VALIDAR: CUANDO NO HAY NINGUN GRUPO 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             FrmGrupo frmGrupo = new FrmGrupo();
             int grupoAbierto = cmbGrupos.SelectedIndex;
+            frmGrupo.grupo = grupos.ElementAt(grupoAbierto);
             frmGrupo.Text += $" {grupos.ElementAt(grupoAbierto).nombre}.";
             frmGrupo.Show();
         }
@@ -164,6 +175,7 @@ namespace GradeNote
             txtAnio.Text = "";
         }
         
+        //VALIDAR: entrada de datos y cuando no hay grupos creados
         private void btnEditGroup_Click(object sender, EventArgs e)
         {
             if (btnEditGroup.Text.Equals("Editar"))
@@ -195,6 +207,7 @@ namespace GradeNote
             hayOperacion = false;
         }
 
+        //VALIDAR: cancelar con combobox vacios
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
             if(hayOperacion == false)
@@ -207,7 +220,7 @@ namespace GradeNote
                 btnAgregar.Text = "Agregar";
                 edicionDeTxt(!false, 1);
                 int index = cmbGrupos.SelectedIndex;
-                cmbGrupos.SelectedIndex = 1;
+                cmbGrupos.SelectedIndex = 0;
                 cmbGrupos.SelectedIndex = index;
                 btnEditGroup.Enabled = true;
                 btnEliminar.Enabled = true;
@@ -232,6 +245,10 @@ namespace GradeNote
         private void btnEliminar_Click(object sender, EventArgs e)
         {
             int index = cmbGrupos.SelectedIndex;
+            if (index < 0)
+            {
+                return;
+            }
             bool esborrado = n_Grupo.EliminarGrupo((int)grupos.ElementAt(index).id);
             grupos = n_Grupo.ObtenerListaGrupos();
             ActualizarComboBox();
