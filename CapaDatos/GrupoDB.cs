@@ -5,6 +5,19 @@ namespace CapaDatos
 {
     public class GrupoDB : ConexionDB, Crud<Grupo>
     {
+        public bool Insertar(Grupo nuevoObjeto)
+        {
+            string sentencia = $"INSERT INTO Grupos(nombre,turno,anio) VALUES (\"{nuevoObjeto.nombre}\",\"{nuevoObjeto.turno}\",\"{nuevoObjeto.anio}\")";
+            try
+            {
+                this.ExecuteQuery(sentencia);
+            }
+            catch
+            {
+                return false;
+            }
+            return true;
+        }
 
         public bool Editar(Grupo nuevoObjeto)
         {
@@ -34,21 +47,7 @@ namespace CapaDatos
             }
             return true;
         }
-
-        public bool Insertar(Grupo nuevoObjeto)
-        {
-            string sentencia = $"INSERT INTO Grupos(nombre,turno,anio) VALUES (\"{nuevoObjeto.nombre}\",\"{nuevoObjeto.turno}\",\"{nuevoObjeto.anio}\")";
-            try
-            {
-                this.ExecuteQuery(sentencia);
-            }
-            catch
-            {
-                return false;
-            }
-            return true;
-        }
-
+    
         public System.Data.DataTable ObtenerGrupos()
         {
             string setencia = "SELECT * FROM Grupos";

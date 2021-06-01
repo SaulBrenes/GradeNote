@@ -9,8 +9,8 @@ namespace Entidades
 {
     public class Materia
     {
-        public int id { get; set; }
-        public int id_grupo { get; set; }
+        public Int64 id { get; set; }
+        public Int64 id_grupo { get; set; }
         public string nombre { get; set; }
         public List<Evaluacion> evaluaciones { get; set; }
     }

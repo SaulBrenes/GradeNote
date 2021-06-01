@@ -8,18 +8,11 @@ namespace Entidades
 {
     public class Evaluacion
     {
-        private int id;
-        private int id_materia;
-        private string nombre;
-        private int valor;
-        private int numeroParcial;
-        private List<Nota> notas;
-
-        public int Id { get => id; set => id = value; }
-        public int Id_materia { get => id_materia; set => id_materia = value; }
-        public string Nombre { get => nombre; set => nombre = value; }
-        public int Valor { get => valor; set => valor = value; }
-        public int NumeroParcial { get => numeroParcial; set => numeroParcial = value; }
-        public List<Nota> Notas { get => notas; set => notas = value; }
+        public Int64 id { get; set; }
+        public Int64 id_materia { get; set; }
+        public string nombre { get; set; }
+        public Int64 valor { get; set; }
+        public Int64 numeroParcial { get; set; }
+        public List<Nota> notas { get; set; }
     }
 }

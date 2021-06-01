@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public enum TipoAsistencia
+    public enum TipoAsistencia: System.Int64
     {
             Ausente = 0,
             Presente = 1,
