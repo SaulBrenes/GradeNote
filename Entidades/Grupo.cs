@@ -21,6 +21,14 @@ namespace Entidades
             this.anio = anio;
         }
 
+        public Grupo(Int64 id, string nombre, string turno, Int64 anio)
+        {
+            this.id = id;
+            this.nombre = nombre;
+            this.turno = turno;
+            this.anio = anio;
+        }
+
         public Grupo(){}
 
     }

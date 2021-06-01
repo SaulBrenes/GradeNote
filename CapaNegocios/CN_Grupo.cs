@@ -17,6 +17,18 @@ namespace CapaNegocios
             grupoDB.Insertar(nuevoGrupo);
         }
 
+
+        public void EditarGrupo(Grupo viejoG)
+        {
+            grupoDB.Editar(viejoG);
+        }
+
+        //Fijarse como se eliminar el grupo y los indices de nuevos grupos
+        public bool EliminarGrupo(int indice)
+        {
+            return grupoDB.Eliminar(indice);
+        }
+
         public System.Data.DataTable ObtenerDataTableGrupos()
         {
             return grupoDB.ObtenerGrupos();
@@ -26,5 +38,7 @@ namespace CapaNegocios
         {
             return grupoDB.ObtenerListaDeTodos();
         }
+
+        
     }
 }

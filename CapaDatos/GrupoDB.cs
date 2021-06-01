@@ -5,14 +5,10 @@ namespace CapaDatos
 {
     public class GrupoDB : ConexionDB, Crud<Grupo>
     {
-        public void CrearGrupo(Grupo nuevoObjeto)
-        {
-           
-        }
 
         public bool Editar(Grupo nuevoObjeto)
         {
-            string sentencia = $"UPDATE Grupos SET nombre=\"{nuevoObjeto.nombre}\",turno=\"{nuevoObjeto.turno}\", anio={nuevoObjeto.anio}  WHERE id ={nuevoObjeto.id}";
+            string sentencia = $"UPDATE Grupos SET nombre=\"{nuevoObjeto.nombre}\",turno=\"{nuevoObjeto.turno}\", anio=\"{nuevoObjeto.anio}\"  WHERE id ={nuevoObjeto.id}";
             try
             {
                 this.ExecuteQuery(sentencia);
@@ -24,9 +20,10 @@ namespace CapaDatos
             return true;
         }
 
+        //Fijarse como se eliminar el grupo y los indices de nuevos grupos
         public bool Eliminar(int id)
         {
-            string sentencia = $"DELETE FROM Grupos WHERE id ={id} ";
+            string sentencia = $"DELETE FROM Grupos WHERE id ={id}";
             try
             {
                 this.ExecuteQuery(sentencia);

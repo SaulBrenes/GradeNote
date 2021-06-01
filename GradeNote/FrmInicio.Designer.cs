@@ -55,7 +55,7 @@ namespace GradeNote
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEditGroup = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.txtGrado = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -332,7 +332,7 @@ namespace GradeNote
             this.flowLayoutPanel3.Controls.Add(this.btnAgregar);
             this.flowLayoutPanel3.Controls.Add(this.btnEditGroup);
             this.flowLayoutPanel3.Controls.Add(this.btnEliminar);
-            this.flowLayoutPanel3.Controls.Add(this.button2);
+            this.flowLayoutPanel3.Controls.Add(this.btnCancelar);
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 354);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
@@ -371,16 +371,18 @@ namespace GradeNote
             this.btnEliminar.TabIndex = 7;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
-            // button2
+            // btnCancelar
             // 
-            this.button2.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button2.Location = new System.Drawing.Point(326, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(90, 28);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Cancelar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCancelar.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnCancelar.Location = new System.Drawing.Point(326, 3);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(90, 28);
+            this.btnCancelar.TabIndex = 8;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // flowLayoutPanel2
             // 
@@ -431,7 +433,7 @@ namespace GradeNote
             this.txtAnio.Name = "txtAnio";
             this.txtAnio.ReadOnly = true;
             this.txtAnio.Size = new System.Drawing.Size(118, 23);
-            this.txtAnio.TabIndex = 7;
+            this.txtAnio.TabIndex = 5;
             // 
             // label13
             // 
@@ -453,7 +455,7 @@ namespace GradeNote
             this.txtTurno.Name = "txtTurno";
             this.txtTurno.ReadOnly = true;
             this.txtTurno.Size = new System.Drawing.Size(118, 23);
-            this.txtTurno.TabIndex = 5;
+            this.txtTurno.TabIndex = 7;
             // 
             // label12
             // 
@@ -576,7 +578,7 @@ namespace GradeNote
         private System.Windows.Forms.TextBox txtAnio;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox2;

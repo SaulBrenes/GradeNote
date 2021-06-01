@@ -12,16 +12,33 @@ namespace GradeNote
 {
     public partial class FrmInicio : Form
     {
+        //Objetos que guardan información
+        private Colegio datoscolegio = new Colegio();
         private List<Grupo> grupos;
+        //Objetos de la capa negocios
         private CN_Colegio Ncolegio = new CN_Colegio();
         private CN_Grupo n_Grupo = new CN_Grupo();
-        private Colegio datoscolegio = new Colegio();
+        //Variables auxiliares
+        bool hayOperacion = false;
+
 
         public FrmInicio()
         {
             InitializeComponent();
         }
 
+        //Metodo que se corre cuando se ve el formulario por primera vez
+        private void FrmInicio_Shown(object sender, EventArgs e)
+        {
+            grupos = n_Grupo.ObtenerListaGrupos();
+            actualizarColegio();
+            ActualizarComboBox();
+            this.cmbGrupos.Focus();
+        }
+
+                              //Acciones de los botones u otros componentes
+        
+        //Editar datos del colegio
         private void btnEditar_Click(object sender, EventArgs e)
         {
             if (btnEditar.Text.Equals("Editar"))
@@ -40,6 +57,7 @@ namespace GradeNote
             }  
         }
         
+        //Metodo para agregar un grupo
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             if (btnAgregar.Text.Equals("Agregar"))
@@ -47,20 +65,30 @@ namespace GradeNote
                 edicionDeTxt(!true, 1);
                 LimpiarTxtGrupo();
                 btnAgregar.Text = "Guardar";
+                txtGrado.Focus();
+                hayOperacion = true;
+                btnEditGroup.Enabled = false;
+                btnEliminar.Enabled = false;
                 return;
             }
             
+            //Guardando nuevo grupo y actulizando objetos datos
             Int64 anio = Int64.Parse(txtAnio.Text);
             Grupo g = new Grupo(txtGrado.Text, txtTurno.Text, anio);
             n_Grupo.AgregarNuevoGrupo(g);
             grupos = n_Grupo.ObtenerListaGrupos();
             ActualizarComboBox();
+
             //Limpiando seleccion para seleccionar el nuevo grupo creado
             cmbGrupos.SelectedIndex = grupos.Count - 1;
             btnAgregar.Text=  "Agregar";
             edicionDeTxt(!false, 1);
+            btnEditGroup.Enabled = true;
+            btnEliminar.Enabled = true;
+            hayOperacion = false;
         }
 
+        //Método para ingresar al formulario grupo
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             FrmGrupo frmGrupo = new FrmGrupo();
@@ -69,7 +97,19 @@ namespace GradeNote
             frmGrupo.Show();
         }
 
-        //Metodos para actualizar vista
+        //Cambia los valores de los texbox cuando se cambie el item del combobox
+        private void cmbGrupos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int index = cmbGrupos.SelectedIndex;
+            txtGrado.Text = grupos.ElementAt(index).nombre;
+            txtTurno.Text = grupos.ElementAt(index).turno;
+            txtAnio.Text = $"{grupos.ElementAt(index).anio}";
+        }
+
+
+                          //Metodos para actualizar formulario
+
+        //Actualizar items de combobox
         private void ActualizarComboBox()
         {
             GrupoDB grupoDB = new GrupoDB();
@@ -78,14 +118,9 @@ namespace GradeNote
             cmbGrupos.DisplayMember = "nombre";
             cmbGrupos.ValueMember = "id";
 
-            //items = DT.AsEnumerable().Select(row =>
-            //new Grupo
-            //{
-            //    Id = (int)row.Field<Int64>("id"),
-            //    Nombre = row.Field<string>("nombre")
-            //}).ToList();
         }
 
+        //Actualiza datos de los textbox de propiedades de colegio
         private void actualizarColegio()
         {
             datoscolegio = Ncolegio.ObtenerDatosActuales();
@@ -97,6 +132,9 @@ namespace GradeNote
             txtProfesor.Text = datoscolegio.profesor;
         }
 
+        //Permite que los texbox se puedan editar el texto dependiendo del booleano
+        //i= 0 es para texbox colegio
+        // i = 1 es para texbox grupo
         private void edicionDeTxt(bool bandera, int i)
         {
             switch (i)
@@ -118,32 +156,87 @@ namespace GradeNote
            
         }
 
+        //Limpia textbox de caracteristicas grupo
         private void LimpiarTxtGrupo()
         {
             txtGrado.Text = "";
             txtTurno.Text = "";
             txtAnio.Text = "";
         }
-
-        private void cmbGrupos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int index = cmbGrupos.SelectedIndex;
-            txtGrado.Text = grupos.ElementAt(index).nombre;
-            txtTurno.Text = grupos.ElementAt(index).turno;
-            txtAnio.Text = $"{grupos.ElementAt(index).anio}";
-        }
-
-        private void FrmInicio_Shown(object sender, EventArgs e)
-        {
-            grupos = n_Grupo.ObtenerListaGrupos();
-            actualizarColegio();
-            ActualizarComboBox();
-            this.cmbGrupos.Focus();
-        }
-
+        
         private void btnEditGroup_Click(object sender, EventArgs e)
         {
+            if (btnEditGroup.Text.Equals("Editar"))
+            {
+                edicionDeTxt(!true, 1);
+                btnEditGroup.Text = "Guardar";
+                txtGrado.Focus();
+                hayOperacion = true;
+                btnAgregar.Enabled = false;
+                btnEliminar.Enabled = false;
+                return;
+            }
 
+            //Guardando nuevo grupo y actulizando objetos datos
+            int index = cmbGrupos.SelectedIndex;
+            Int64 anio = Int64.Parse(txtAnio.Text);
+            Grupo g = new Grupo(grupos.ElementAt(index).id,txtGrado.Text, txtTurno.Text, anio);
+            n_Grupo.EditarGrupo(g);
+            grupos = n_Grupo.ObtenerListaGrupos();
+            ActualizarComboBox();
+
+            //Limpiando seleccion para seleccionar el nuevo grupo editado
+            cmbGrupos.SelectedIndex = 1;
+            cmbGrupos.SelectedIndex = index;
+            btnEditGroup.Text = "Editar";
+            edicionDeTxt(!false, 1);
+            btnAgregar.Enabled = true;
+            btnEliminar.Enabled = true;
+            hayOperacion = false;
+        }
+
+        private void BtnCancelar_Click(object sender, EventArgs e)
+        {
+            if(hayOperacion == false)
+            {
+                return;
+            }
+
+            if (btnAgregar.Text.Equals("Guardar"))
+            {
+                btnAgregar.Text = "Agregar";
+                edicionDeTxt(!false, 1);
+                int index = cmbGrupos.SelectedIndex;
+                cmbGrupos.SelectedIndex = 1;
+                cmbGrupos.SelectedIndex = index;
+                btnEditGroup.Enabled = true;
+                btnEliminar.Enabled = true;
+                hayOperacion = false;
+
+            }
+            else if(btnEditGroup.Text.Equals("Guardar"))
+            {
+                btnEditGroup.Text = "Editar";
+                edicionDeTxt(!false, 1);
+                int index = cmbGrupos.SelectedIndex;
+                cmbGrupos.SelectedIndex = 1;
+                cmbGrupos.SelectedIndex = index;
+                btnAgregar.Enabled = true;
+                btnEliminar.Enabled = true;
+                hayOperacion = false;
+            }
+            hayOperacion = false;
+        }
+
+        //Fijarse como se eliminar el grupo y los indices de nuevos grupos
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            int index = cmbGrupos.SelectedIndex;
+            bool esborrado = n_Grupo.EliminarGrupo((int)grupos.ElementAt(index).id);
+            grupos = n_Grupo.ObtenerListaGrupos();
+            ActualizarComboBox();
+            cmbGrupos.SelectedIndex = grupos.Count - 1;
+            
         }
     }
 }
