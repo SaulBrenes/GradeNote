@@ -112,6 +112,10 @@ namespace GradeNote
         private void cmbGrupos_SelectedIndexChanged(object sender, EventArgs e)
         {
             int index = cmbGrupos.SelectedIndex;
+            if(index == -1)
+            {
+                return;
+            }
             txtGrado.Text = grupos.ElementAt(index).nombre;
             txtTurno.Text = grupos.ElementAt(index).turno;
             txtAnio.Text = $"{grupos.ElementAt(index).anio}";
@@ -198,7 +202,7 @@ namespace GradeNote
             ActualizarComboBox();
 
             //Limpiando seleccion para seleccionar el nuevo grupo editado
-            cmbGrupos.SelectedIndex = 1;
+            cmbGrupos.SelectedIndex = -1;
             cmbGrupos.SelectedIndex = index;
             btnEditGroup.Text = "Editar";
             edicionDeTxt(!false, 1);
@@ -220,7 +224,7 @@ namespace GradeNote
                 btnAgregar.Text = "Agregar";
                 edicionDeTxt(!false, 1);
                 int index = cmbGrupos.SelectedIndex;
-                cmbGrupos.SelectedIndex = 0;
+                cmbGrupos.SelectedIndex = -1;
                 cmbGrupos.SelectedIndex = index;
                 btnEditGroup.Enabled = true;
                 btnEliminar.Enabled = true;
@@ -232,7 +236,7 @@ namespace GradeNote
                 btnEditGroup.Text = "Editar";
                 edicionDeTxt(!false, 1);
                 int index = cmbGrupos.SelectedIndex;
-                cmbGrupos.SelectedIndex = 1;
+                cmbGrupos.SelectedIndex = -1;
                 cmbGrupos.SelectedIndex = index;
                 btnAgregar.Enabled = true;
                 btnEliminar.Enabled = true;

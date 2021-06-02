@@ -13,6 +13,11 @@ namespace CapaNegocios
     {
         EstudianteDB dBEstudiante = new EstudianteDB();
 
+        public void AgregarEstudiante(Estudiante newest)
+        {
+            dBEstudiante.Insertar(newest);
+        }
+
         public DataTable TablaEstudiantesDelGrupo(int idGrupo)
         {
             dBEstudiante.idGrupo = idGrupo;

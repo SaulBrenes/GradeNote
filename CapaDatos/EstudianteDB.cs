@@ -55,7 +55,7 @@ namespace CapaDatos
 
         public System.Data.DataTable ObtenerEstudiantes()
         {
-            string setencia = $"SELECT apellidos as Apellidos, nombres as Nombres, codigo as codigo FROM Estudiantes WHERE id_grupo = {idGrupo} ORDER BY apellidos";
+            string setencia = $"SELECT apellidos, nombres, codigo FROM Estudiantes WHERE id_grupo = {idGrupo} ORDER BY apellidos";
             return loadData(setencia);
         }
 
