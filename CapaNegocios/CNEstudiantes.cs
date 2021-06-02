@@ -18,6 +18,16 @@ namespace CapaNegocios
             dBEstudiante.Insertar(newest);
         }
 
+        public void EditarEstudiante(Estudiante eEditar)
+        {
+            dBEstudiante.Editar(eEditar);
+        }
+
+        public void EliminarEstudiante(int idEst)
+        {
+            dBEstudiante.Eliminar(idEst);
+        }
+
         public DataTable TablaEstudiantesDelGrupo(int idGrupo)
         {
             dBEstudiante.idGrupo = idGrupo;

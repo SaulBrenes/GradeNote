@@ -62,7 +62,7 @@ namespace CapaDatos
 
         public List<Estudiante> ObtenerListaDeTodos()
         {
-            System.Data.DataTable dt = ObtenerEstudiantes();
+            System.Data.DataTable dt = loadData($"SELECT * FROM Estudiantes WHERE id_grupo = {idGrupo} ORDER BY apellidos");
             return ConvertirDataTabletoClase<Estudiante>(dt);
         }
     }

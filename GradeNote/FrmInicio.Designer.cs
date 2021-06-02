@@ -411,7 +411,7 @@ namespace GradeNote
             this.txtGrado.Name = "txtGrado";
             this.txtGrado.ReadOnly = true;
             this.txtGrado.Size = new System.Drawing.Size(118, 23);
-            this.txtGrado.TabIndex = 1;
+            this.txtGrado.TabIndex = 2;
             // 
             // label10
             // 
@@ -433,7 +433,7 @@ namespace GradeNote
             this.txtAnio.Name = "txtAnio";
             this.txtAnio.ReadOnly = true;
             this.txtAnio.Size = new System.Drawing.Size(118, 23);
-            this.txtAnio.TabIndex = 5;
+            this.txtAnio.TabIndex = 3;
             // 
             // label13
             // 
@@ -455,7 +455,7 @@ namespace GradeNote
             this.txtTurno.Name = "txtTurno";
             this.txtTurno.ReadOnly = true;
             this.txtTurno.Size = new System.Drawing.Size(118, 23);
-            this.txtTurno.TabIndex = 7;
+            this.txtTurno.TabIndex = 4;
             // 
             // label12
             // 
@@ -475,20 +475,20 @@ namespace GradeNote
             this.btnIngresar.Location = new System.Drawing.Point(203, 117);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(88, 41);
-            this.btnIngresar.TabIndex = 0;
+            this.btnIngresar.TabIndex = 1;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = true;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
             // 
             // cmbGrupos
             // 
+            this.cmbGrupos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGrupos.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbGrupos.FormattingEnabled = true;
             this.cmbGrupos.Location = new System.Drawing.Point(161, 68);
             this.cmbGrupos.Name = "cmbGrupos";
             this.cmbGrupos.Size = new System.Drawing.Size(183, 27);
             this.cmbGrupos.TabIndex = 0;
-            this.cmbGrupos.Text = "Seleccione un grupo";
             this.cmbGrupos.SelectedIndexChanged += new System.EventHandler(this.cmbGrupos_SelectedIndexChanged);
             // 
             // dataGridView1
