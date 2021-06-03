@@ -10,10 +10,11 @@ namespace CapaDatos
     public class AsistenciaDB : ConexionDB, Crud<Asistencia>
     {
         public int idEstudiante { get; set; }
+        public int idgrupo{ get; set; }
 
         public bool Insertar(Asistencia nuevoObjeto)
         {
-            string sentencia = $"INSERT INTO Asistencias(id_estudiante,fecha,tipo) VALUES (\"{nuevoObjeto.id_estudiante}\",\'{nuevoObjeto.fecha}\',\"{(Int64)nuevoObjeto.tipo}\")";
+            string sentencia = $"INSERT INTO Asistencias(id_grupo, id_estudiante,fecha,tipo) VALUES (\"{idgrupo}\", \"{nuevoObjeto.id_estudiante}\",\'{nuevoObjeto.fecha}\',\"{(Int64)nuevoObjeto.tipo}\")";
             try
             {
                 this.ExecuteQuery(sentencia);
@@ -56,7 +57,7 @@ namespace CapaDatos
 
         public System.Data.DataTable ObtenerAsistencias()
         {
-            string setencia = $"SELECT fecha FROM Asistencias WHERE id_estudiante={idEstudiante}";
+            string setencia = $"SELECT fecha FROM Asistencias WHERE id_grupo={idgrupo} GROUP BY fecha";
             return loadData(setencia);
         }
 

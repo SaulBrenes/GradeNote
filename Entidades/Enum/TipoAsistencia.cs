@@ -5,9 +5,9 @@ namespace Entidades
 {
     public enum TipoAsistencia: System.Int64
     {
-            Ausente = 0,
-            Presente = 1,
-            Justificado = 2,
-            Tardio = 3
+            AUSENTE = 0,
+            PRESENTE = 1,
+            JUSTIFICADO = 2,
+            TARDIO = 3
     }
 }

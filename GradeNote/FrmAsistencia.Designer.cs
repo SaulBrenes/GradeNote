@@ -76,15 +76,24 @@ namespace CapaPresentacion
             this.btnSeleccionar.TabIndex = 1;
             this.btnSeleccionar.Text = "SELECCIONAR";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
+            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
             // 
             // dgvAsistencias
             // 
+            this.dgvAsistencias.AllowUserToAddRows = false;
+            this.dgvAsistencias.AllowUserToDeleteRows = false;
+            this.dgvAsistencias.AllowUserToResizeRows = false;
+            this.dgvAsistencias.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
             this.dgvAsistencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAsistencias.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvAsistencias.Location = new System.Drawing.Point(3, 19);
+            this.dgvAsistencias.MultiSelect = false;
             this.dgvAsistencias.Name = "dgvAsistencias";
+            this.dgvAsistencias.ReadOnly = true;
             this.dgvAsistencias.RowTemplate.Height = 25;
+            this.dgvAsistencias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvAsistencias.Size = new System.Drawing.Size(200, 277);
+            this.dgvAsistencias.StandardTab = true;
             this.dgvAsistencias.TabIndex = 0;
             // 
             // groupBox2
@@ -225,12 +234,12 @@ namespace CapaPresentacion
             this.dtpFecha.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFecha.Location = new System.Drawing.Point(130, 28);
-            this.dtpFecha.MaxDate = new System.DateTime(2021, 6, 2, 0, 0, 0, 0);
+            this.dtpFecha.MaxDate = new System.DateTime(2021, 6, 3, 0, 0, 0, 0);
             this.dtpFecha.MinDate = new System.DateTime(2021, 1, 1, 0, 0, 0, 0);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(116, 27);
             this.dtpFecha.TabIndex = 2;
-            this.dtpFecha.Value = new System.DateTime(2021, 6, 2, 0, 0, 0, 0);
+            this.dtpFecha.Value = new System.DateTime(2021, 6, 3, 0, 0, 0, 0);
             // 
             // FrmAsistencia
             // 

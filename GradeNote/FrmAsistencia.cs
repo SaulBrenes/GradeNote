@@ -15,7 +15,6 @@ namespace CapaPresentacion
     public partial class FrmAsistencia : Form
     {
         public int id_grupo { get; set; }
-        public int[] id_estudiante { get; set; }
 
         CNAsistencia CNasistencia = new CNAsistencia();
         CNEstudiantes CNestudiante = new CNEstudiantes();
@@ -35,25 +34,40 @@ namespace CapaPresentacion
             {
                 return;
             }
-            int id = (int) estudiantes.ElementAt(0).id; 
-            dgvAsistencias.DataSource = CNasistencia.ObtenerFechasAsistencias(id);
+
+            dgvAsistencias.DataSource = CNasistencia.ObtenerFechasAsistencias(id_grupo);
+            dgvAsistencias.ClearSelection();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show($"La fecha: {dtpFecha.Text}");
             Asistencia nueva = new Asistencia
             {
                 fecha = dtpFecha.Value
             };
 
-            foreach(Estudiante est in estudiantes)
+            foreach (Estudiante est in estudiantes)
             {
                 nueva.id_estudiante = est.id;
-                nueva.tipo = TipoAsistencia.Presente;
-                CNasistencia.CrearAsistencia(nueva);
+                nueva.tipo = TipoAsistencia.PRESENTE;
+                CNasistencia.CrearAsistencia(nueva, id_grupo);
             }
-            
+
+            //Recargando la vista
+            dgvAsistencias.DataSource = CNasistencia.ObtenerFechasAsistencias(id_grupo);
+            dgvAsistencias.ClearSelection();
+        }
+
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            if (dgvAsistencias.SelectedRows.Count <= 0)
+            {
+                return;
+            }
+
+            //Obteniendo asistencia(fecha) de la fila seleccionada
+            string fecha = (string) dgvAsistencias.SelectedRows[0].Cells[0].Value;
+            dgvAsistEst.DataSource = CNasistencia.ObtenerTableAsistenciaEstudiante(fecha, id_grupo);
         }
     }
 }
