@@ -9,7 +9,7 @@ namespace CapaDatos
 {
     public class AsistenciaDB : ConexionDB, Crud<Asistencia>
     {
-        int idEstudiante { get; set; }
+        public int idEstudiante { get; set; }
 
         public bool Insertar(Asistencia nuevoObjeto)
         {
@@ -56,7 +56,7 @@ namespace CapaDatos
 
         public System.Data.DataTable ObtenerAsistencias()
         {
-            string setencia = $"SELECT * FROM Asistencias WHERE id_estudiante={idEstudiante}";
+            string setencia = $"SELECT fecha FROM Asistencias WHERE id_estudiante={idEstudiante}";
             return loadData(setencia);
         }
 

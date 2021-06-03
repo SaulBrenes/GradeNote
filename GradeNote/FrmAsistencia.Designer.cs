@@ -180,6 +180,7 @@ namespace CapaPresentacion
             this.btnAgregar.TabIndex = 0;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnEditar
             // 
@@ -220,11 +221,16 @@ namespace CapaPresentacion
             // 
             // dtpFecha
             // 
-            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFecha.CustomFormat = "yyyy-MM-dd";
+            this.dtpFecha.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFecha.Location = new System.Drawing.Point(130, 28);
+            this.dtpFecha.MaxDate = new System.DateTime(2021, 6, 2, 0, 0, 0, 0);
+            this.dtpFecha.MinDate = new System.DateTime(2021, 1, 1, 0, 0, 0, 0);
             this.dtpFecha.Name = "dtpFecha";
-            this.dtpFecha.Size = new System.Drawing.Size(108, 23);
+            this.dtpFecha.Size = new System.Drawing.Size(116, 27);
             this.dtpFecha.TabIndex = 2;
+            this.dtpFecha.Value = new System.DateTime(2021, 6, 2, 0, 0, 0, 0);
             // 
             // FrmAsistencia
             // 

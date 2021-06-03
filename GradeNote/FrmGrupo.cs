@@ -31,6 +31,8 @@ namespace CapaPresentacion
         {
          
            frmMaterias = new FrmMaterias();
+           string nombre = $" del {grupo.nombre}";
+           frmMaterias.Text += nombre;
            frmMaterias.MdiParent = this;
            frmMaterias.Show();
         }
@@ -60,6 +62,8 @@ namespace CapaPresentacion
         private void estadisticaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmEstadistica = new FrmEstadistica();
+            string nombre = $" del {grupo.nombre}";
+            frmEstadistica.Text += nombre;
             frmEstadistica.MdiParent = this;
             frmEstadistica.Show();
         }
@@ -67,6 +71,9 @@ namespace CapaPresentacion
         private void asistenciaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAsistencia = new FrmAsistencia();
+            string nombre = $" del {grupo.nombre}";
+            frmAsistencia.Text += nombre;
+            frmAsistencia.id_grupo = (int) grupo.id;
             frmAsistencia.MdiParent = this;
             frmAsistencia.Show();
         }
@@ -74,6 +81,8 @@ namespace CapaPresentacion
         private void boletinToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmBoletin = new FrmBoletin();
+            string nombre = $" del {grupo.nombre}";
+            frmBoletin.Text += nombre;
             frmBoletin.MdiParent = this;
             frmBoletin.Show();
         }
