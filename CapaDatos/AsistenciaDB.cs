@@ -14,7 +14,7 @@ namespace CapaDatos
 
         public bool Insertar(Asistencia nuevoObjeto)
         {
-            string sentencia = $"INSERT INTO Asistencias(id_grupo, id_estudiante,fecha,tipo) VALUES (\"{idgrupo}\", \"{nuevoObjeto.id_estudiante}\",\'{nuevoObjeto.fecha}\',\"{(Int64)nuevoObjeto.tipo}\")";
+            string sentencia = $"INSERT INTO Asistencias(id_grupo, id_estudiante,fecha,tipo) VALUES (\"{idgrupo}\", \"{nuevoObjeto.id_estudiante}\",\'{nuevoObjeto.fecha}\',\"{nuevoObjeto.tipo.ToString()}\")";
             try
             {
                 this.ExecuteQuery(sentencia);
@@ -43,7 +43,7 @@ namespace CapaDatos
 
         public bool Eliminar(int id)
         {
-            string sentencia = $"DELETE FROM Asistencias WHERE id ={id}";
+            string sentencia = $"DELETE FROM Asistencias WHERE id ={id} AND id_grupo{idgrupo}";
             try
             {
                 this.ExecuteQuery(sentencia);
@@ -65,6 +65,12 @@ namespace CapaDatos
         {
             System.Data.DataTable dt = ObtenerAsistencias();
             return ConvertirDataTabletoClase<Asistencia>(dt);
+        }
+
+        public void CambiarTipoAsistencia(TipoAsistencia t, int id, string fecha)
+        {
+            string sentencia = $"UPDATE Asistencias SET tipo=\"{t.ToString()}\" WHERE id_estudiante={id} AND fecha=\"{fecha}\"";
+            ExecuteQuery(sentencia);
         }
     }
 }

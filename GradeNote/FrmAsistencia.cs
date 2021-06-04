@@ -20,7 +20,6 @@ namespace CapaPresentacion
         CNEstudiantes CNestudiante = new CNEstudiantes();
 
         List<Estudiante> estudiantes = new List<Estudiante>();
-        List<Asistencia> asistencias = new List<Asistencia>();
 
         public FrmAsistencia()
         {
@@ -52,10 +51,10 @@ namespace CapaPresentacion
                 nueva.tipo = TipoAsistencia.PRESENTE;
                 CNasistencia.CrearAsistencia(nueva, id_grupo);
             }
-
             //Recargando la vista
             dgvAsistencias.DataSource = CNasistencia.ObtenerFechasAsistencias(id_grupo);
             dgvAsistencias.ClearSelection();
+            dgvAsistEst.DataSource = null;
         }
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
@@ -67,6 +66,57 @@ namespace CapaPresentacion
 
             //Obteniendo asistencia(fecha) de la fila seleccionada
             string fecha = (string) dgvAsistencias.SelectedRows[0].Cells[0].Value;
+            dgvAsistEst.DataSource = CNasistencia.ObtenerTableAsistenciaEstudiante(fecha, id_grupo);
+            dtpFecha.Value = CNasistencia.CrearFecha(fecha);
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        { 
+            if (dgvAsistencias.SelectedRows.Count <= 0)
+            {
+                return;
+            }
+
+            //Obteniendo asistencia(fecha) de la fila seleccionada a eliminar
+            string fecha = (string)dgvAsistencias.SelectedRows[0].Cells[0].Value;
+
+            //Eliminando asistencias
+            CNasistencia.Elimnar(fecha, id_grupo);
+
+            //Refrescar tablas
+            dgvAsistencias.DataSource = CNasistencia.ObtenerFechasAsistencias(id_grupo);
+            dgvAsistencias.ClearSelection();
+            dgvAsistEst.DataSource = null;
+        }
+
+        private void btnPresente_Click(object sender, EventArgs e)
+        {
+            this.CambiandoAsistenciaFilaSeleccionada(TipoAsistencia.PRESENTE);    
+        }
+
+        private void btnAusente_Click(object sender, EventArgs e)
+        {
+            this.CambiandoAsistenciaFilaSeleccionada(TipoAsistencia.AUSENTE);
+        }
+
+        private void btnJustificado_Click(object sender, EventArgs e)
+        {
+            this.CambiandoAsistenciaFilaSeleccionada(TipoAsistencia.JUSTIFICADO);
+        }
+
+        private void CambiandoAsistenciaFilaSeleccionada(TipoAsistencia t)
+        {
+            if (dgvAsistEst.SelectedRows.Count <= 0)
+            {
+                return;
+            }
+            string fecha = (string)dgvAsistencias.SelectedRows[0].Cells[0].Value;
+            foreach (DataGridViewRow fila in dgvAsistEst.SelectedRows)
+            {
+                //Obteniendo id del estudiante a editar asistencia
+                int id = (int)estudiantes.ElementAt(fila.Index).id;
+                CNasistencia.CambiarAsitencia(t, id, fecha);
+            }
             dgvAsistEst.DataSource = CNasistencia.ObtenerTableAsistenciaEstudiante(fecha, id_grupo);
         }
     }

@@ -30,59 +30,48 @@ namespace CapaPresentacion
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnSeleccionar = new System.Windows.Forms.Button();
             this.dgvAsistencias = new System.Windows.Forms.DataGridView();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnSeleccionar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnPresente = new System.Windows.Forms.Button();
             this.btnAusente = new System.Windows.Forms.Button();
             this.btnJustificado = new System.Windows.Forms.Button();
             this.dgvAsistEst = new System.Windows.Forms.DataGridView();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAsistencias)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAsistEst)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.btnSeleccionar);
             this.groupBox1.Controls.Add(this.dgvAsistencias);
+            this.groupBox1.Controls.Add(this.flowLayoutPanel1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(206, 299);
+            this.groupBox1.Size = new System.Drawing.Size(181, 367);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Asistencias realizadas";
-            // 
-            // btnSeleccionar
-            // 
-            this.btnSeleccionar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnSeleccionar.Location = new System.Drawing.Point(3, 267);
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Size = new System.Drawing.Size(200, 29);
-            this.btnSeleccionar.TabIndex = 1;
-            this.btnSeleccionar.Text = "SELECCIONAR";
-            this.btnSeleccionar.UseVisualStyleBackColor = true;
-            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
             // 
             // dgvAsistencias
             // 
             this.dgvAsistencias.AllowUserToAddRows = false;
             this.dgvAsistencias.AllowUserToDeleteRows = false;
             this.dgvAsistencias.AllowUserToResizeRows = false;
+            this.dgvAsistencias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvAsistencias.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvAsistencias.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
             this.dgvAsistencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAsistencias.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -92,32 +81,73 @@ namespace CapaPresentacion
             this.dgvAsistencias.ReadOnly = true;
             this.dgvAsistencias.RowTemplate.Height = 25;
             this.dgvAsistencias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAsistencias.Size = new System.Drawing.Size(200, 277);
+            this.dgvAsistencias.Size = new System.Drawing.Size(175, 282);
             this.dgvAsistencias.StandardTab = true;
             this.dgvAsistencias.TabIndex = 0;
             // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Controls.Add(this.btnSeleccionar);
+            this.flowLayoutPanel1.Controls.Add(this.btnEliminar);
+            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 301);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(175, 63);
+            this.flowLayoutPanel1.TabIndex = 4;
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.Location = new System.Drawing.Point(3, 3);
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.Size = new System.Drawing.Size(169, 23);
+            this.btnSeleccionar.TabIndex = 1;
+            this.btnSeleccionar.Text = "Seleccionar";
+            this.btnSeleccionar.UseVisualStyleBackColor = true;
+            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Location = new System.Drawing.Point(3, 32);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(169, 23);
+            this.btnEliminar.TabIndex = 2;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnAgregar);
             this.groupBox2.Controls.Add(this.groupBox3);
-            this.groupBox2.Controls.Add(this.flowLayoutPanel1);
             this.groupBox2.Controls.Add(this.label1);
             this.groupBox2.Controls.Add(this.dtpFecha);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(206, 0);
+            this.groupBox2.Location = new System.Drawing.Point(181, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(353, 299);
+            this.groupBox2.Size = new System.Drawing.Size(423, 367);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Detalles de Asistencia seleccionada";
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(119, 57);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(169, 23);
+            this.btnAgregar.TabIndex = 6;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.flowLayoutPanel2);
             this.groupBox3.Controls.Add(this.dgvAsistEst);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox3.Location = new System.Drawing.Point(3, 114);
+            this.groupBox3.Location = new System.Drawing.Point(3, 98);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(347, 182);
+            this.groupBox3.Size = new System.Drawing.Size(417, 266);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Pasar asistencia a estudiantes";
@@ -128,101 +158,63 @@ namespace CapaPresentacion
             this.flowLayoutPanel2.Controls.Add(this.btnAusente);
             this.flowLayoutPanel2.Controls.Add(this.btnJustificado);
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 145);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 229);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(341, 34);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(411, 34);
             this.flowLayoutPanel2.TabIndex = 5;
             // 
             // btnPresente
             // 
             this.btnPresente.Location = new System.Drawing.Point(3, 3);
             this.btnPresente.Name = "btnPresente";
-            this.btnPresente.Size = new System.Drawing.Size(75, 23);
+            this.btnPresente.Size = new System.Drawing.Size(88, 23);
             this.btnPresente.TabIndex = 0;
             this.btnPresente.Text = "PRESENTE";
             this.btnPresente.UseVisualStyleBackColor = true;
+            this.btnPresente.Click += new System.EventHandler(this.btnPresente_Click);
             // 
             // btnAusente
             // 
-            this.btnAusente.Location = new System.Drawing.Point(84, 3);
+            this.btnAusente.Location = new System.Drawing.Point(97, 3);
             this.btnAusente.Name = "btnAusente";
-            this.btnAusente.Size = new System.Drawing.Size(75, 23);
+            this.btnAusente.Size = new System.Drawing.Size(88, 23);
             this.btnAusente.TabIndex = 1;
             this.btnAusente.Text = "AUSENTE";
             this.btnAusente.UseVisualStyleBackColor = true;
+            this.btnAusente.Click += new System.EventHandler(this.btnAusente_Click);
             // 
             // btnJustificado
             // 
-            this.btnJustificado.Location = new System.Drawing.Point(165, 3);
+            this.btnJustificado.Location = new System.Drawing.Point(191, 3);
             this.btnJustificado.Name = "btnJustificado";
-            this.btnJustificado.Size = new System.Drawing.Size(90, 23);
+            this.btnJustificado.Size = new System.Drawing.Size(103, 23);
             this.btnJustificado.TabIndex = 3;
             this.btnJustificado.Text = "JUSTIFICADO";
             this.btnJustificado.UseVisualStyleBackColor = true;
+            this.btnJustificado.Click += new System.EventHandler(this.btnJustificado_Click);
             // 
             // dgvAsistEst
             // 
+            this.dgvAsistEst.AllowUserToAddRows = false;
+            this.dgvAsistEst.AllowUserToDeleteRows = false;
+            this.dgvAsistEst.AllowUserToResizeRows = false;
+            this.dgvAsistEst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvAsistEst.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvAsistEst.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvAsistEst.Location = new System.Drawing.Point(3, 19);
+            this.dgvAsistEst.Location = new System.Drawing.Point(4, 22);
             this.dgvAsistEst.Name = "dgvAsistEst";
+            this.dgvAsistEst.ReadOnly = true;
             this.dgvAsistEst.RowTemplate.Height = 25;
-            this.dgvAsistEst.Size = new System.Drawing.Size(341, 160);
+            this.dgvAsistEst.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvAsistEst.Size = new System.Drawing.Size(407, 201);
             this.dgvAsistEst.TabIndex = 0;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Controls.Add(this.btnAgregar);
-            this.flowLayoutPanel1.Controls.Add(this.btnEditar);
-            this.flowLayoutPanel1.Controls.Add(this.btnEliminar);
-            this.flowLayoutPanel1.Controls.Add(this.btnCancelar);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(6, 71);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(329, 29);
-            this.flowLayoutPanel1.TabIndex = 4;
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Location = new System.Drawing.Point(3, 3);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 0;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // btnEditar
-            // 
-            this.btnEditar.Location = new System.Drawing.Point(84, 3);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 23);
-            this.btnEditar.TabIndex = 1;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.Location = new System.Drawing.Point(165, 3);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
-            this.btnEliminar.TabIndex = 2;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(246, 3);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 3;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(71, 30);
+            this.label1.Location = new System.Drawing.Point(90, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 21);
             this.label1.TabIndex = 3;
@@ -230,10 +222,11 @@ namespace CapaPresentacion
             // 
             // dtpFecha
             // 
+            this.dtpFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpFecha.CustomFormat = "yyyy-MM-dd";
             this.dtpFecha.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFecha.Location = new System.Drawing.Point(130, 28);
+            this.dtpFecha.Location = new System.Drawing.Point(149, 24);
             this.dtpFecha.MaxDate = new System.DateTime(2021, 6, 3, 0, 0, 0, 0);
             this.dtpFecha.MinDate = new System.DateTime(2021, 1, 1, 0, 0, 0, 0);
             this.dtpFecha.Name = "dtpFecha";
@@ -245,7 +238,7 @@ namespace CapaPresentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(559, 299);
+            this.ClientSize = new System.Drawing.Size(604, 367);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmAsistencia";
@@ -253,12 +246,12 @@ namespace CapaPresentacion
             this.Load += new System.EventHandler(this.FrmAsistencia_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAsistencias)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAsistEst)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -273,14 +266,12 @@ namespace CapaPresentacion
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.Button btnPresente;
         private System.Windows.Forms.Button btnAusente;
         private System.Windows.Forms.Button btnJustificado;
         private System.Windows.Forms.DataGridView dgvAsistEst;
+        private System.Windows.Forms.Button btnAgregar;
     }
 }
