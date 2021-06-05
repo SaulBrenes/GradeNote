@@ -14,7 +14,7 @@ namespace CapaDatos
 
         public bool Insertar(Nota nuevoObjeto)
         {
-            string sentencia = $"INSERT INTO Notas(id_evaluacion, id_estudiante, valor) VALUES(\"{nuevoObjeto.id_evaluacion}\", \"{nuevoObjeto.id_estudiante}\", \"{nuevoObjeto.valor}\")";
+            string sentencia = $"INSERT INTO NotasIP (id_evaluacion, id_estudiante, valor) VALUES(\"{nuevoObjeto.id_evaluacion}\", \"{nuevoObjeto.id_estudiante}\", \"{nuevoObjeto.valor}\")";
             try
             {
                 this.ExecuteQuery(sentencia);
@@ -28,7 +28,7 @@ namespace CapaDatos
 
         public bool Editar(Nota nuevoObjeto)
         {
-            string sentencia = $"UPDATE Notas SET id_evaluacion=\"{nuevoObjeto.id_evaluacion}\",id_estudiante=\"{nuevoObjeto.id_estudiante}\", valor=\"{nuevoObjeto.valor}\"WHERE id ={nuevoObjeto.id}";
+            string sentencia = $"UPDATE NotasIP SET id_evaluacion=\"{nuevoObjeto.id_evaluacion}\",id_estudiante=\"{nuevoObjeto.id_estudiante}\", valor=\"{nuevoObjeto.valor}\"WHERE id ={nuevoObjeto.id}";
             try
             {
                 this.ExecuteQuery(sentencia);

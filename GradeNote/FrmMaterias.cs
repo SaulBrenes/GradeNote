@@ -180,6 +180,7 @@ namespace CapaPresentacion
             int index = cmbMateria.SelectedIndex;
 
             FrmEvaluaciones frmEvaluaciones = new FrmEvaluaciones();
+            frmEvaluaciones.materia = materias.ElementAt(index);
             frmEvaluaciones.Text += $" de la materia {materias.ElementAt(index).nombre}";
             frmEvaluaciones.Show();
         }

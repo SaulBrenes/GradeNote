@@ -9,7 +9,7 @@ namespace CapaDatos
 {
     public class EvaluacionDB : ConexionDB, Crud<Evaluacion>
     {
-        int idMateria { get; set; }
+        public int idMateria { get; set; }
 
         public bool Insertar(Evaluacion nuevoObjeto)
         {
@@ -55,13 +55,13 @@ namespace CapaDatos
 
         public System.Data.DataTable ObtenerEvaluaciones()
         {
-            string setencia = $"SELECT * FROM Evaluaciones WHERE id_materia={idMateria}";
+            string setencia = $"SELECT nombre,valor, numeroParcial FROM Evaluaciones WHERE id_materia={idMateria}";
             return loadData(setencia);
         }
 
         public List<Evaluacion> ObtenerListaDeTodos()
         {
-            System.Data.DataTable dt = ObtenerEvaluaciones();
+            System.Data.DataTable dt = loadData($"SELECT * FROM Evaluaciones WHERE id_materia={idMateria}");
             return ConvertirDataTabletoClase<Evaluacion>(dt);
         }
     }
