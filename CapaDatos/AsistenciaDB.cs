@@ -67,6 +67,24 @@ namespace CapaDatos
             return ConvertirDataTabletoClase<Asistencia>(dt);
         }
 
+        public float ObtenerAsistenciasEstudiante(int id)
+        {
+            string sentencia = $"SELECT * FROM Asistencias WHERE id_estudiante = \"{id}\"";
+            float cantidadAsistencias = 1;
+            string sentencia2 = $"SELECT * FROM Asistencias WHERE id_estudiante = \"{id}\" AND (tipo = \"PRESENTE\" OR tipo = \"JUSTIFICADO\")";
+            float cantidadPresentes = 0;
+
+            System.Data.DataTable dtA = loadData(sentencia);
+            System.Data.DataTable dtP = loadData(sentencia2);
+            if (dtA.Rows.Count != 0)
+            {
+                cantidadAsistencias = dtA.Rows.Count;
+            }
+                cantidadPresentes = dtP.Rows.Count;
+            float porcentaje = (cantidadPresentes/cantidadAsistencias)*100F;
+            return porcentaje;
+        }
+
         public void CambiarTipoAsistencia(TipoAsistencia t, int id, string fecha)
         {
             string sentencia = $"UPDATE Asistencias SET tipo=\"{t.ToString()}\" WHERE id_estudiante={id} AND fecha=\"{fecha}\"";

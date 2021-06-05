@@ -33,6 +33,7 @@ namespace CapaPresentacion
            frmMaterias = new FrmMaterias();
            string nombre = $" del {grupo.nombre}";
            frmMaterias.Text += nombre;
+           frmMaterias.id_grupo = (int)grupo.id;
            frmMaterias.MdiParent = this;
            frmMaterias.Show();
         }
@@ -64,6 +65,7 @@ namespace CapaPresentacion
             frmEstadistica = new FrmEstadistica();
             string nombre = $" del {grupo.nombre}";
             frmEstadistica.Text += nombre;
+            frmEstadistica.id_grupo = (int)grupo.id;
             frmEstadistica.MdiParent = this;
             frmEstadistica.Show();
         }

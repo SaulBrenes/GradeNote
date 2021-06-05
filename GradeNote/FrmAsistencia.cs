@@ -24,6 +24,8 @@ namespace CapaPresentacion
         public FrmAsistencia()
         {
             InitializeComponent();
+            dtpFecha.MaxDate = DateTime.Today;
+            dtpFecha.Value = DateTime.Today;
         }
 
         private void FrmAsistencia_Load(object sender, EventArgs e)
@@ -42,7 +44,7 @@ namespace CapaPresentacion
         {
             Asistencia nueva = new Asistencia
             {
-                fecha = dtpFecha.Value
+                fecha = dtpFecha.Value.ToString()
             };
 
             foreach (Estudiante est in estudiantes)

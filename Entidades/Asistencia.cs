@@ -10,7 +10,7 @@ namespace Entidades
     {
         public Int64 id {get; set;}
         public Int64 id_estudiante { get; set; }
-        public DateTime fecha { get; set; }
+        public string fecha { get; set; }
         public TipoAsistencia tipo { get; set; }
     }
 }

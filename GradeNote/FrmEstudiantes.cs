@@ -15,6 +15,7 @@ namespace CapaPresentacion
     public partial class FrmEstudiantes : Form
     {
         public int id_grupo { get; set; }
+        private DataTable dt;
         CNEstudiantes cnEst = new CNEstudiantes();
         List<Estudiante> estudiantes = new List<Estudiante>();
 
@@ -25,9 +26,10 @@ namespace CapaPresentacion
 
         private void FrmEstudiantes_Load(object sender, EventArgs e)
         {
-            DataTable  dt = cnEst.TablaEstudiantesDelGrupo(id_grupo);
+            dt = cnEst.TablaEstudiantesDelGrupo(id_grupo);
             dgvEstudiantes.DataSource = dt;
             estudiantes = cnEst.ListaEstudiantes(id_grupo);
+            cmbFiltro.SelectedIndex = 0;
         }
 
         private void dgvEstudiantes_RowEnter(object sender, DataGridViewCellEventArgs e)
@@ -78,10 +80,12 @@ namespace CapaPresentacion
             cnEst.AgregarEstudiante(nuevoEst);
 
             //Obteniendo nuevos datos de la DB sqlite,actualizando lista y seleccion de la tabla
-            dgvEstudiantes.DataSource = cnEst.TablaEstudiantesDelGrupo(id_grupo);
+            dt = cnEst.TablaEstudiantesDelGrupo(id_grupo);
+            dgvEstudiantes.DataSource = dt;
+            //dgvEstudiantes.DataSource = cnEst.TablaEstudiantesDelGrupo(id_grupo);
             estudiantes = cnEst.ListaEstudiantes(id_grupo);
             dgvEstudiantes.ClearSelection();
-            dgvEstudiantes.Rows[estudiantes.Count - 1].Selected= true;
+            //dgvEstudiantes.Rows[estudiantes.Count - 1].Selected= true;
 
             //Deshabilitando escritura
             txtNombres.ReadOnly = true;
@@ -125,7 +129,9 @@ namespace CapaPresentacion
             cnEst.EditarEstudiante(est);
 
             //Obteniendo nuevos datos de la DB sqlite,actualizando lista y seleccion de la tabla
-            dgvEstudiantes.DataSource = cnEst.TablaEstudiantesDelGrupo(id_grupo);
+            dt = cnEst.TablaEstudiantesDelGrupo(id_grupo);
+            dgvEstudiantes.DataSource = dt;
+            //dgvEstudiantes.DataSource = cnEst.TablaEstudiantesDelGrupo(id_grupo);
             estudiantes = cnEst.ListaEstudiantes(id_grupo);
             dgvEstudiantes.ClearSelection();
             dgvEstudiantes.Rows[index].Selected = true;
@@ -188,7 +194,9 @@ namespace CapaPresentacion
             cnEst.EliminarEstudiante((int) est.id);
 
             //Obteniendo nuevos datos de la DB sqlite,actualizando lista y seleccion de la tabla
-            dgvEstudiantes.DataSource = cnEst.TablaEstudiantesDelGrupo(id_grupo);
+            dt = cnEst.TablaEstudiantesDelGrupo(id_grupo);
+            dgvEstudiantes.DataSource = dt;
+            //dgvEstudiantes.DataSource = cnEst.TablaEstudiantesDelGrupo(id_grupo);
             estudiantes = cnEst.ListaEstudiantes(id_grupo);
 
 
@@ -197,6 +205,27 @@ namespace CapaPresentacion
                 return;
             }
             dgvEstudiantes.Rows[0].Selected = true;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            int tipofiltro = cmbFiltro.SelectedIndex;
+            switch (tipofiltro)
+            {
+                case 0:
+                    dt.DefaultView.RowFilter = $"nombres LIKE '{textBox1.Text}%'";
+                    break;
+                case 1:
+                    dt.DefaultView.RowFilter = $"apellidos LIKE '{textBox1.Text}%'";
+                    break;
+                case 2:
+                    dt.DefaultView.RowFilter = $"codigo LIKE '{textBox1.Text}%'";
+                    break;
+                default:
+                    dt.DefaultView.RowFilter = $"nombres LIKE '{textBox1.Text}%'";
+                    break;
+
+            }
         }
     }
 }

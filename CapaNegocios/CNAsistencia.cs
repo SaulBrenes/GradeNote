@@ -50,5 +50,10 @@ namespace CapaNegocios
         {
             dbAsistencia.CambiarTipoAsistencia(t, id, fecha);
         }
+
+        public float ObtenerPorcentajeAsistenciasDelEstudiante(int id)
+        {
+            return dbAsistencia.ObtenerAsistenciasEstudiante(id);
+        }
     }
 }

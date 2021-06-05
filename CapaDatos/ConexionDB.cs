@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
@@ -100,7 +101,7 @@ namespace CapaDatos
                 {
                     if(pro.Name == column.ColumnName)
                     {
-                        pro.SetValue(obj, dr[column.ColumnName], null);
+                            pro.SetValue(obj, dr[column.ColumnName], null);
                     }
                     else
                     {
