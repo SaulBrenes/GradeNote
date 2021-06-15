@@ -51,18 +51,19 @@ namespace GradeNote
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnEditGroup = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.txtGrado = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.txtAnio = new System.Windows.Forms.TextBox();
+            this.txtGrado = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.txtTurno = new System.Windows.Forms.TextBox();
+            this.txtAnio = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
+            this.txtTurno = new System.Windows.Forms.TextBox();
             this.btnIngresar = new System.Windows.Forms.Button();
             this.cmbGrupos = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -80,6 +81,7 @@ namespace GradeNote
             this.flowLayoutPanel4.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.flowLayoutPanel3.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -99,12 +101,14 @@ namespace GradeNote
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(704, 391);
+            this.splitContainer1.Size = new System.Drawing.Size(704, 393);
             this.splitContainer1.SplitterDistance = 234;
             this.splitContainer1.TabIndex = 0;
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.flowLayoutPanel8);
             this.groupBox2.Controls.Add(this.flowLayoutPanel7);
             this.groupBox2.Controls.Add(this.flowLayoutPanel6);
@@ -113,7 +117,6 @@ namespace GradeNote
             this.groupBox2.Controls.Add(this.flowLayoutPanel4);
             this.groupBox2.Controls.Add(this.flowLayoutPanel1);
             this.groupBox2.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(234, 391);
@@ -313,6 +316,7 @@ namespace GradeNote
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.flowLayoutPanel3);
             this.groupBox1.Controls.Add(this.flowLayoutPanel2);
             this.groupBox1.Controls.Add(this.btnIngresar);
@@ -321,19 +325,32 @@ namespace GradeNote
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(466, 391);
+            this.groupBox1.Size = new System.Drawing.Size(466, 393);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Grupos Activos:";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.imgInicio;
+            this.pictureBox1.Location = new System.Drawing.Point(20, 40);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(198, 297);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            // 
             // flowLayoutPanel3
             // 
+            this.flowLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel3.AutoSize = true;
             this.flowLayoutPanel3.Controls.Add(this.btnAgregar);
             this.flowLayoutPanel3.Controls.Add(this.btnEditGroup);
             this.flowLayoutPanel3.Controls.Add(this.btnEliminar);
             this.flowLayoutPanel3.Controls.Add(this.btnCancelar);
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 354);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Padding = new System.Windows.Forms.Padding(35, 0, 6, 0);
@@ -386,95 +403,98 @@ namespace GradeNote
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.flowLayoutPanel2.Controls.Add(this.txtGrado);
             this.flowLayoutPanel2.Controls.Add(this.label10);
-            this.flowLayoutPanel2.Controls.Add(this.txtAnio);
+            this.flowLayoutPanel2.Controls.Add(this.txtGrado);
             this.flowLayoutPanel2.Controls.Add(this.label13);
-            this.flowLayoutPanel2.Controls.Add(this.txtTurno);
+            this.flowLayoutPanel2.Controls.Add(this.txtAnio);
             this.flowLayoutPanel2.Controls.Add(this.label12);
-            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(116, 196);
+            this.flowLayoutPanel2.Controls.Add(this.txtTurno);
+            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(281, 154);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(5);
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(242, 102);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(138, 165);
             this.flowLayoutPanel2.TabIndex = 4;
-            // 
-            // txtGrado
-            // 
-            this.txtGrado.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtGrado.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtGrado.Location = new System.Drawing.Point(109, 8);
-            this.txtGrado.Name = "txtGrado";
-            this.txtGrado.ReadOnly = true;
-            this.txtGrado.Size = new System.Drawing.Size(118, 23);
-            this.txtGrado.TabIndex = 2;
             // 
             // label10
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(38, 10);
+            this.label10.Location = new System.Drawing.Point(34, 5);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 18);
             this.label10.TabIndex = 0;
             this.label10.Text = "Nombre:";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtAnio
+            // txtGrado
             // 
-            this.txtAnio.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtAnio.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtAnio.Location = new System.Drawing.Point(109, 37);
-            this.txtAnio.Name = "txtAnio";
-            this.txtAnio.ReadOnly = true;
-            this.txtAnio.Size = new System.Drawing.Size(118, 23);
-            this.txtAnio.TabIndex = 3;
+            this.txtGrado.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtGrado.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtGrado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtGrado.Location = new System.Drawing.Point(8, 26);
+            this.txtGrado.Name = "txtGrado";
+            this.txtGrado.ReadOnly = true;
+            this.txtGrado.Size = new System.Drawing.Size(118, 23);
+            this.txtGrado.TabIndex = 2;
             // 
             // label13
             // 
             this.label13.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label13.Location = new System.Drawing.Point(14, 39);
+            this.label13.Location = new System.Drawing.Point(22, 52);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(89, 18);
             this.label13.TabIndex = 6;
             this.label13.Text = "Año Lectivo:";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtTurno
+            // txtAnio
             // 
-            this.txtTurno.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtTurno.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txtTurno.Location = new System.Drawing.Point(109, 66);
-            this.txtTurno.Name = "txtTurno";
-            this.txtTurno.ReadOnly = true;
-            this.txtTurno.Size = new System.Drawing.Size(118, 23);
-            this.txtTurno.TabIndex = 4;
+            this.txtAnio.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtAnio.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtAnio.Location = new System.Drawing.Point(8, 73);
+            this.txtAnio.Name = "txtAnio";
+            this.txtAnio.ReadOnly = true;
+            this.txtAnio.Size = new System.Drawing.Size(118, 23);
+            this.txtAnio.TabIndex = 3;
             // 
             // label12
             // 
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(54, 68);
+            this.label12.Location = new System.Drawing.Point(42, 99);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(49, 18);
             this.label12.TabIndex = 4;
             this.label12.Text = "Turno:";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // txtTurno
+            // 
+            this.txtTurno.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtTurno.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtTurno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtTurno.Location = new System.Drawing.Point(8, 120);
+            this.txtTurno.Name = "txtTurno";
+            this.txtTurno.ReadOnly = true;
+            this.txtTurno.Size = new System.Drawing.Size(118, 23);
+            this.txtTurno.TabIndex = 4;
+            // 
             // btnIngresar
             // 
+            this.btnIngresar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnIngresar.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnIngresar.Location = new System.Drawing.Point(203, 117);
+            this.btnIngresar.Location = new System.Drawing.Point(297, 100);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(88, 41);
+            this.btnIngresar.Size = new System.Drawing.Size(86, 33);
             this.btnIngresar.TabIndex = 1;
             this.btnIngresar.Text = "Ingresar";
             this.btnIngresar.UseVisualStyleBackColor = true;
@@ -482,10 +502,12 @@ namespace GradeNote
             // 
             // cmbGrupos
             // 
+            this.cmbGrupos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbGrupos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbGrupos.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.cmbGrupos.FormattingEnabled = true;
-            this.cmbGrupos.Location = new System.Drawing.Point(161, 68);
+            this.cmbGrupos.Location = new System.Drawing.Point(251, 49);
             this.cmbGrupos.Name = "cmbGrupos";
             this.cmbGrupos.Size = new System.Drawing.Size(183, 27);
             this.cmbGrupos.TabIndex = 0;
@@ -505,7 +527,6 @@ namespace GradeNote
             this.textBox1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.textBox1.Location = new System.Drawing.Point(92, 3);
             this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.textBox1.Size = new System.Drawing.Size(125, 23);
             this.textBox1.TabIndex = 3;
@@ -527,10 +548,10 @@ namespace GradeNote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 391);
+            this.ClientSize = new System.Drawing.Size(704, 393);
             this.Controls.Add(this.splitContainer1);
             this.Name = "FrmInicio";
-            this.Text = "Noteacher";
+            this.Text = "GradeNote";
             this.Shown += new System.EventHandler(this.FrmInicio_Shown);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -551,6 +572,7 @@ namespace GradeNote
             this.flowLayoutPanel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
@@ -600,7 +622,7 @@ namespace GradeNote
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox t;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

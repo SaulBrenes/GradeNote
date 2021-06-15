@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Entidades
 {
@@ -13,6 +10,7 @@ namespace Entidades
         public string nombres { get; set; }
         public string apellidos { get; set; }
         public string codigo { get; set; }
+        public List<Asistencia> asistencias { get; set; }
         public float pasistencias { get; set; }
     }
 }

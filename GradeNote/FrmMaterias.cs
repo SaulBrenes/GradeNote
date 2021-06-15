@@ -2,12 +2,8 @@
 using Entidades;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CapaPresentacion
@@ -18,7 +14,7 @@ namespace CapaPresentacion
 
         CN_Materia cnMateria = new();
 
-        private List<Materia> materias = new();
+        public List<Materia> materias;
 
         public FrmMaterias()
         {
@@ -33,15 +29,21 @@ namespace CapaPresentacion
             materias = cnMateria.ObtenerMateriasDelGrupo(id_grupo);
         }
 
+        //Esta lo hace para todas las materias y no una, se debe añadir a las tablas de notas el atributo id_materia
         private void ActualizarTablaEstudiantes()
         {
-
+            CNEstudiantes cnestudiantes = new();
+            dgvEstudiantes.DataSource = cnestudiantes.ObtenerNotaEstudiante(id_grupo);
         }
 
         private void cmbMateria_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if(materias == null)
+            {
+                return;
+            }
             int index = cmbMateria.SelectedIndex;
-            if (index == -1 || materias.Count == 0 || materias == null)
+            if (index == -1 || materias.Count == 0)
             {
                 return;
             }
@@ -182,7 +184,13 @@ namespace CapaPresentacion
             FrmEvaluaciones frmEvaluaciones = new FrmEvaluaciones();
             frmEvaluaciones.materia = materias.ElementAt(index);
             frmEvaluaciones.Text += $" de la materia {materias.ElementAt(index).nombre}";
-            frmEvaluaciones.Show();
+            frmEvaluaciones.FormClosed += CerrandoMateria;
+            frmEvaluaciones.ShowDialog();
+        }
+
+        private void CerrandoMateria(object sender, EventArgs e)
+        {
+            ActualizarTablaEstudiantes();
         }
     }
 }

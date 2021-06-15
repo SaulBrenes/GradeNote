@@ -199,6 +199,7 @@ namespace CapaPresentacion
             //dgvEstudiantes.DataSource = cnEst.TablaEstudiantesDelGrupo(id_grupo);
             estudiantes = cnEst.ListaEstudiantes(id_grupo);
 
+            txtApellidos.Text = txtNombres.Text = txtCodigo.Text = "";
 
             if (estudiantes.Count <= 0)
             {

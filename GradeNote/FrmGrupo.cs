@@ -1,12 +1,5 @@
 ﻿using Entidades;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CapaPresentacion
@@ -14,7 +7,6 @@ namespace CapaPresentacion
     public partial class FrmGrupo : Form
     {
         public Grupo grupo { get; set; }
-        bool isMateriaopen, isEstudianteopen, isEstadisticasopen, isAsistenciaopen,isBoletinopen;
         FrmMaterias frmMaterias;
         FrmEstudiantes frmEstudiantes;
         FrmEstadistica frmEstadistica;
@@ -24,7 +16,6 @@ namespace CapaPresentacion
         public FrmGrupo()
         {
             InitializeComponent();
-            isMateriaopen = /*isEstudianteopen =*/ isEstadisticasopen = isAsistenciaopen= isBoletinopen= false;
         }
 
         private void materiasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -46,7 +37,6 @@ namespace CapaPresentacion
             frmEstudiantes.id_grupo = (int)grupo.id;
             frmEstudiantes.MdiParent = this;
             frmEstudiantes.Show();
-            isEstudianteopen = true;
         }
 
         private void estudiantesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -56,9 +46,7 @@ namespace CapaPresentacion
             frmEstudiantes.Text += nombre;
             frmEstudiantes.id_grupo = (int)grupo.id;
             frmEstudiantes.MdiParent = this;
-            frmEstudiantes.Show();
-            isEstudianteopen = true;
-        }
+            frmEstudiantes.Show();        }
 
         private void estadisticaToolStripMenuItem_Click(object sender, EventArgs e)
         {

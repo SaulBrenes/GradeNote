@@ -39,6 +39,18 @@ namespace CapaNegocios
             return grupoDB.ObtenerListaDeTodos();
         }
 
-        
+        private int ValidarGrupo(string nombre, string turno, string anio)
+        {
+            if (String.IsNullOrWhiteSpace(nombre) || String.IsNullOrWhiteSpace(turno) || String.IsNullOrWhiteSpace(anio))
+            {
+                throw new ArgumentException("Llene todos los campos");
+            }
+
+            if (!int.TryParse(anio, out int anioconv))
+            {
+                throw new ArgumentException($"El valor {anio} no es valido");
+            }
+            return anioconv;
+        }
     }
 }

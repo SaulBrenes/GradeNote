@@ -101,6 +101,10 @@ namespace GradeNote
         //VALIDAR: CUANDO NO HAY NINGUN GRUPO 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
+            if(grupos.Count == 0)
+            {
+                return;
+            }
             FrmGrupo frmGrupo = new FrmGrupo();
             int grupoAbierto = cmbGrupos.SelectedIndex;
             frmGrupo.grupo = grupos.ElementAt(grupoAbierto);
@@ -182,6 +186,12 @@ namespace GradeNote
         //VALIDAR: entrada de datos y cuando no hay grupos creados
         private void btnEditGroup_Click(object sender, EventArgs e)
         {
+            if(grupos.Count == 0)
+            {
+                LimpiarTxtGrupo();
+                return;
+            }
+
             if (btnEditGroup.Text.Equals("Editar"))
             {
                 edicionDeTxt(!true, 1);
@@ -211,10 +221,9 @@ namespace GradeNote
             hayOperacion = false;
         }
 
-        //VALIDAR: cancelar con combobox vacios
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-            if(hayOperacion == false)
+            if(hayOperacion == false )
             {
                 return;
             }
@@ -224,6 +233,7 @@ namespace GradeNote
                 btnAgregar.Text = "Agregar";
                 edicionDeTxt(!false, 1);
                 int index = cmbGrupos.SelectedIndex;
+                LimpiarTxtGrupo();
                 cmbGrupos.SelectedIndex = -1;
                 cmbGrupos.SelectedIndex = index;
                 btnEditGroup.Enabled = true;
@@ -256,8 +266,12 @@ namespace GradeNote
             bool esborrado = n_Grupo.EliminarGrupo((int)grupos.ElementAt(index).id);
             grupos = n_Grupo.ObtenerListaGrupos();
             ActualizarComboBox();
+            if (grupos.Count == 0)
+            {
+                LimpiarTxtGrupo();
+                return;
+            }
             cmbGrupos.SelectedIndex = grupos.Count - 1;
-            
         }
     }
 }

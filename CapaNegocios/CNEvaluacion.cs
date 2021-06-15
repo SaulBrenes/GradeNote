@@ -28,5 +28,10 @@ namespace CapaNegocios
         {
             evaluacionDB.Insertar(e);
         }
+
+        public void EliminarEvaluacion(long idEvaluacion)
+        {
+            evaluacionDB.Eliminar((int)idEvaluacion);
+        }
     }
 }

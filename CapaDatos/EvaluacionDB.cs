@@ -53,9 +53,10 @@ namespace CapaDatos
             return true;
         }
 
+        //Metodo que obtiene la vista de la tabla de evaluaciones
         public System.Data.DataTable ObtenerEvaluaciones()
         {
-            string setencia = $"SELECT nombre,valor, numeroParcial FROM Evaluaciones WHERE id_materia={idMateria}";
+            string setencia = $"SELECT nombre,numeroParcial,valor FROM Evaluaciones WHERE id_materia={idMateria}";
             return loadData(setencia);
         }
 
