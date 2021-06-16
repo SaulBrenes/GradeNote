@@ -20,6 +20,7 @@ namespace CapaPresentacion
         CNNota CNnotas = new();
         List<Estudiante> estudiantes = new List<Estudiante>();
         List<Evaluacion> evaluaciones = new List<Evaluacion>();
+        bool SeAgrega;
 
         public FrmEvaluaciones()
         {
@@ -33,29 +34,38 @@ namespace CapaPresentacion
             if (estudiantes.Count == 0)
             {
                 MessageBox.Show("Registre estudiantes.", "No se pueden crear evaluaciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
+                this.Close();
             }
             //Obteniendo evaluaciones de la materia
             CargandoEvaluaciones();
         }
-
+       
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+
             if (btnAgregar.Text.Equals("AGREGAR"))
             {
                 //Habilitando o desabilitando botones necesarios
                 btnCancelar.Enabled = true;
                 btnEliminar.Enabled = false;
                 btnDarNota.Enabled = false;
+                btnSeleccionar.Enabled = false;
                 //Cambiando propiedades para un nuevo ingreso
                 btnAgregar.Text = "GUARDAR";
                 txtNombre.ReadOnly = false;
                 nudParcial.Enabled = true;
-                nudValor.Enabled = true;
-                txtNombre.Focus();
+                nudValor.Enabled = true; nudValor.Value = 1;
+                txtNombre.Focus(); txtNombre.Text = "";
+                ValidarCampoValorEvaluacion();
                 return;
             }
 
+            if (!SeAgrega)
+            {
+                MessageBox.Show("No se pueden agregar más evaluaciones. Alcanzo el 100%");
+                return;
+            }
+            //*****Al agregar que el valor no sea cero
             Evaluacion nueva = new Evaluacion
             {
                 id_materia = materia.id,
@@ -77,17 +87,18 @@ namespace CapaPresentacion
             foreach(Estudiante est in estudiantes)
             {
                 n.id_estudiante = est.id;
-                CNnotas.CrearNota(n, nueva.numeroParcial);
+                CNnotas.CrearNota(n, nueva.numeroParcial, materia.id);
             }
 
             btnCancelar.Enabled = false;
             btnEliminar.Enabled = true;
             btnDarNota.Enabled = true;
+            btnSeleccionar.Enabled = true;
             btnAgregar.Text = "AGREGAR";
             txtNombre.ReadOnly = true;
             nudParcial.Enabled = false;
             nudValor.Enabled = false;
-
+            SeleccionarFila(dgvEvaluaciones.Rows.Count - 1);
         }
 
         private void btnSeleccionar_Click(object sender, EventArgs e)
@@ -96,6 +107,7 @@ namespace CapaPresentacion
             {
                 return;
             }
+            
             //Indice de la primera fila seleccionada
             int index = dgvEvaluaciones.SelectedRows[0].Index;
             //Obteniendo evaluacion seleccionada y notas de la evaluacion seleccionada
@@ -103,12 +115,14 @@ namespace CapaPresentacion
             dgvEstudiantes.DataSource = CNnotas.ObtenerNotasEvaluacion((int)seleccinada.id, seleccinada.numeroParcial);
             txtNombre.Text = seleccinada.nombre;
             nudParcial.Value = seleccinada.numeroParcial;
+            nudValor.Maximum = 100;
             nudValor.Value = seleccinada.valor;
             nudNotaEstudiante.Maximum = seleccinada.valor;
+            btnDarNota.Enabled = true;
         }
 
         private void btnDarNota_Click_1(object sender, EventArgs e)
-        {
+        {   
             long nota = (long)nudNotaEstudiante.Value;
             int indexEst = dgvEstudiantes.SelectedRows[0].Index;
             int indexEva = dgvEvaluaciones.SelectedRows[0].Index;
@@ -120,7 +134,9 @@ namespace CapaPresentacion
             };
 
             CNnotas.EditarNotaAEstudiante(notaEdit, evaluaciones.ElementAt(indexEva).numeroParcial);
+            dgvEstudiantes.DataSource = null;
             dgvEstudiantes.DataSource = CNnotas.ObtenerNotasEvaluacion(indexEva, evaluaciones.ElementAt(indexEva).numeroParcial);
+            nudNotaEstudiante.Value = 0;
         }
 
         private void nudParcial_ValueChanged(object sender, EventArgs e)
@@ -128,11 +144,61 @@ namespace CapaPresentacion
             ValidarCampoValorEvaluacion();
         }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+           if(dgvEvaluaciones.RowCount <= 0)
+           {
+                return;
+           }
+
+            if (dgvEvaluaciones.SelectedRows.Count == 0)
+            {
+                return;
+            }
+
+            //Indice de la primera fila seleccionada
+            int index = dgvEvaluaciones.SelectedRows[0].Index;
+            //Obteniendo evaluacion seleccionada y notas de la evaluacion seleccionada
+            Evaluacion seleccinada = evaluaciones.ElementAt(index);
+            CNnotas.EliminarNotas(seleccinada.numeroParcial, seleccinada.id);
+            CNevaluacion.EliminarEvaluacion(seleccinada.id);
+            CargandoEvaluaciones();
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            if (btnAgregar.Text.Equals("GUARDAR"))
+            {
+                btnCancelar.Enabled = false;
+                btnEliminar.Enabled = true;
+                btnDarNota.Enabled = true;
+                btnSeleccionar.Enabled = true;
+                btnAgregar.Text = "AGREGAR";
+                txtNombre.ReadOnly = true; txtNombre.Text = "";
+                nudParcial.Enabled = false;
+                nudValor.Enabled = false;
+
+                if (dgvEvaluaciones.Rows.Count == 0)
+                {
+                    return;
+                }
+
+                int index = dgvEvaluaciones.Rows[0].Index;
+                Evaluacion seleccinada = evaluaciones.ElementAt(index);
+                dgvEstudiantes.DataSource = CNnotas.ObtenerNotasEvaluacion((int)seleccinada.id, seleccinada.numeroParcial);
+                txtNombre.Text = seleccinada.nombre;
+                nudParcial.Value = seleccinada.numeroParcial;
+                nudValor.Value = seleccinada.valor;
+                nudNotaEstudiante.Maximum = seleccinada.valor;
+            }
+        }
+
         private void ValidarCampoValorEvaluacion()
         {
             int parcial = (int)nudParcial.Value;
             long valorAcumulado = 0;
-
+            SeAgrega = true;
             switch (parcial)
             {
                 case 1:
@@ -165,13 +231,25 @@ namespace CapaPresentacion
                     break;
             }
             nudValor.Maximum = 100 - valorAcumulado;
+            if (nudValor.Maximum == 0)
+            {
+                nudValor.Maximum = 100;
+                nudValor.Value = 0;
+                SeAgrega = false;
+            }
+            else
+            {
+                SeAgrega = true;
+            }
         }
+
         private void CargandoEvaluaciones()
         {
+            //MessageBox.Show($"ID de {materia.nombre} :{materia.id}");
             dgvEvaluaciones.DataSource = CNevaluacion.ObtenerEvaluacionesDeMateria((int)materia.id);
             dgvEvaluaciones.ClearSelection();
             evaluaciones = CNevaluacion.ObetenerListaDeEvaluaciones((int)materia.id);
-            if(evaluaciones.Count == 0)
+            if (evaluaciones.Count == 0)
             {
                 return;
             }
@@ -181,25 +259,17 @@ namespace CapaPresentacion
             materia.evaluacionesIVParcial = evaluaciones.Where(evaluacion => evaluacion.numeroParcial == 4).ToList();
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void SeleccionarFila(int index)
         {
-           if(dgvEvaluaciones.RowCount <= 0)
-           {
-                return;
-           }
-
-            if (dgvEvaluaciones.SelectedRows.Count == 0)
-            {
-                return;
-            }
-
-            //Indice de la primera fila seleccionada
-            int index = dgvEvaluaciones.SelectedRows[0].Index;
             //Obteniendo evaluacion seleccionada y notas de la evaluacion seleccionada
             Evaluacion seleccinada = evaluaciones.ElementAt(index);
-            CNnotas.EliminarNotas(seleccinada.numeroParcial, seleccinada.id);
-            CNevaluacion.EliminarEvaluacion(seleccinada.id);
-            CargandoEvaluaciones();
+            dgvEvaluaciones.Rows[index].Selected = true;
+            dgvEstudiantes.DataSource = CNnotas.ObtenerNotasEvaluacion((int)seleccinada.id, seleccinada.numeroParcial);
+            txtNombre.Text = seleccinada.nombre;
+            nudParcial.Value = seleccinada.numeroParcial;
+            nudValor.Value = seleccinada.valor;
+            nudNotaEstudiante.Value = 0;
+            nudNotaEstudiante.Maximum = seleccinada.valor;
 
         }
     }

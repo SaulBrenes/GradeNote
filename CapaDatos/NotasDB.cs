@@ -13,6 +13,7 @@ namespace CapaDatos
         public Int64 idEstudiante { get; set; }
 
         public long numeroParcial { get; set; }
+        public long idmateria{ get; set; }
 
         public bool Insertar(Nota nuevoObjeto)
         {
@@ -20,16 +21,16 @@ namespace CapaDatos
             switch (numeroParcial)
             {
                 case 1:
-                    sentencia = $"INSERT INTO NotasIP (id_evaluacion, id_estudiante, valor) VALUES(\"{nuevoObjeto.id_evaluacion}\", \"{nuevoObjeto.id_estudiante}\", \"{nuevoObjeto.valor}\")";
+                    sentencia = $"INSERT INTO NotasIP (id_evaluacion, id_estudiante, valor, idmateria) VALUES(\"{nuevoObjeto.id_evaluacion}\", \"{nuevoObjeto.id_estudiante}\", \"{nuevoObjeto.valor}\", \"{idmateria}\")";
                     break;
                 case 2:
-                    sentencia = $"INSERT INTO NotasIIP (id_evaluacion, id_estudiante, valor) VALUES(\"{nuevoObjeto.id_evaluacion}\", \"{nuevoObjeto.id_estudiante}\", \"{nuevoObjeto.valor}\")";
+                    sentencia = $"INSERT INTO NotasIIP (id_evaluacion, id_estudiante, valor, idmateria) VALUES(\"{nuevoObjeto.id_evaluacion}\", \"{nuevoObjeto.id_estudiante}\", \"{nuevoObjeto.valor}\", \"{idmateria}\")";
                     break;
                 case 3:
-                    sentencia = $"INSERT INTO NotasIIIP (id_evaluacion, id_estudiante, valor) VALUES(\"{nuevoObjeto.id_evaluacion}\", \"{nuevoObjeto.id_estudiante}\", \"{nuevoObjeto.valor}\")";
+                    sentencia = $"INSERT INTO NotasIIIP (id_evaluacion, id_estudiante, valor, idmateria) VALUES(\"{nuevoObjeto.id_evaluacion}\", \"{nuevoObjeto.id_estudiante}\", \"{nuevoObjeto.valor}\", \"{idmateria}\")";
                     break;
                 case 4:
-                    sentencia = $"INSERT INTO NotasIIIP (id_evaluacion, id_estudiante, valor) VALUES(\"{nuevoObjeto.id_evaluacion}\", \"{nuevoObjeto.id_estudiante}\", \"{nuevoObjeto.valor}\")";
+                    sentencia = $"INSERT INTO NotasIVP (id_evaluacion, id_estudiante, valor, idmateria) VALUES(\"{nuevoObjeto.id_evaluacion}\", \"{nuevoObjeto.id_estudiante}\", \"{nuevoObjeto.valor}\", \"{idmateria}\")";
                     break;
             }
             try

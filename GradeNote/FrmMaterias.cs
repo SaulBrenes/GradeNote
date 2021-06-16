@@ -33,7 +33,16 @@ namespace CapaPresentacion
         private void ActualizarTablaEstudiantes()
         {
             CNEstudiantes cnestudiantes = new();
-            dgvEstudiantes.DataSource = cnestudiantes.ObtenerNotaEstudiante(id_grupo);
+            if (materias == null)
+            {
+                return;
+            }
+            int index = cmbMateria.SelectedIndex;
+            if (index == -1 || materias.Count == 0)
+            {
+                return;
+            }
+            dgvEstudiantes.DataSource = cnestudiantes.ObtenerNotaEstudiante(id_grupo, (int)materias.ElementAt(index).id);
         }
 
         private void cmbMateria_SelectedIndexChanged(object sender, EventArgs e)
@@ -48,6 +57,7 @@ namespace CapaPresentacion
                 return;
             }
             textBox1.Text = materias.ElementAt(index).nombre;
+            ActualizarTablaEstudiantes();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -118,6 +128,7 @@ namespace CapaPresentacion
             ActualizarTablaEstudiantes();
             if(materias.Count > 0)
             {
+                cmbMateria.SelectedIndex = -1;
                 cmbMateria.SelectedIndex = 0;
             }
         }

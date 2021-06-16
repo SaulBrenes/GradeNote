@@ -25,18 +25,12 @@ namespace CapaPresentacion
            string nombre = $" del {grupo.nombre}";
            frmMaterias.Text += nombre;
            frmMaterias.id_grupo = (int)grupo.id;
-           frmMaterias.MdiParent = this;
-           frmMaterias.Show();
+           //frmMaterias.MdiParent = this;
+           frmMaterias.ShowDialog();
         }
 
         private void FrmGrupo_Load(object sender, EventArgs e)
         {
-            frmEstudiantes = new FrmEstudiantes();
-            string nombre = $" del {grupo.nombre}";
-            frmEstudiantes.Text += nombre;
-            frmEstudiantes.id_grupo = (int)grupo.id;
-            frmEstudiantes.MdiParent = this;
-            frmEstudiantes.Show();
         }
 
         private void estudiantesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -45,8 +39,9 @@ namespace CapaPresentacion
             string nombre = $" del {grupo.nombre}";
             frmEstudiantes.Text += nombre;
             frmEstudiantes.id_grupo = (int)grupo.id;
-            frmEstudiantes.MdiParent = this;
-            frmEstudiantes.Show();        }
+            //frmEstudiantes.MdiParent = this;
+            frmEstudiantes.ShowDialog();       
+        }
 
         private void estadisticaToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -54,8 +49,8 @@ namespace CapaPresentacion
             string nombre = $" del {grupo.nombre}";
             frmEstadistica.Text += nombre;
             frmEstadistica.id_grupo = (int)grupo.id;
-            frmEstadistica.MdiParent = this;
-            frmEstadistica.Show();
+            //frmEstadistica.MdiParent = this;
+            frmEstadistica.ShowDialog();
         }
 
         private void asistenciaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -64,8 +59,8 @@ namespace CapaPresentacion
             string nombre = $" del {grupo.nombre}";
             frmAsistencia.Text += nombre;
             frmAsistencia.id_grupo = (int) grupo.id;
-            frmAsistencia.MdiParent = this;
-            frmAsistencia.Show();
+            //frmAsistencia.MdiParent = this;
+            frmAsistencia.ShowDialog();
         }
 
         private void boletinToolStripMenuItem_Click(object sender, EventArgs e)
@@ -73,8 +68,8 @@ namespace CapaPresentacion
             frmBoletin = new FrmBoletin();
             string nombre = $" del {grupo.nombre}";
             frmBoletin.Text += nombre;
-            frmBoletin.MdiParent = this;
-            frmBoletin.Show();
+           // frmBoletin.MdiParent = this;
+            frmBoletin.ShowDialog();
         }
     }
 }

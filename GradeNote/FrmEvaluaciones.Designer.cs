@@ -68,7 +68,7 @@ namespace CapaPresentacion
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(227, 374);
+            this.groupBox1.Size = new System.Drawing.Size(315, 374);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lista Evaluaciones";
@@ -78,7 +78,7 @@ namespace CapaPresentacion
             this.btnSeleccionar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnSeleccionar.Location = new System.Drawing.Point(3, 348);
             this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Size = new System.Drawing.Size(221, 23);
+            this.btnSeleccionar.Size = new System.Drawing.Size(309, 23);
             this.btnSeleccionar.TabIndex = 6;
             this.btnSeleccionar.Text = "SELECCIONAR";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
@@ -97,7 +97,7 @@ namespace CapaPresentacion
             this.dgvEvaluaciones.ReadOnly = true;
             this.dgvEvaluaciones.RowTemplate.Height = 25;
             this.dgvEvaluaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEvaluaciones.Size = new System.Drawing.Size(221, 352);
+            this.dgvEvaluaciones.Size = new System.Drawing.Size(309, 352);
             this.dgvEvaluaciones.TabIndex = 0;
             // 
             // flowLayoutPanel2
@@ -106,7 +106,7 @@ namespace CapaPresentacion
             this.flowLayoutPanel2.Controls.Add(this.btnEliminar);
             this.flowLayoutPanel2.Controls.Add(this.btnCancelar);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(502, 12);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(591, 12);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(101, 92);
             this.flowLayoutPanel2.TabIndex = 8;
@@ -147,6 +147,7 @@ namespace CapaPresentacion
             this.btnCancelar.TabIndex = 9;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // groupBox4
             // 
@@ -156,7 +157,7 @@ namespace CapaPresentacion
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.txtNombre);
             this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Location = new System.Drawing.Point(232, 12);
+            this.groupBox4.Location = new System.Drawing.Point(321, 12);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(264, 109);
             this.groupBox4.TabIndex = 9;
@@ -247,7 +248,7 @@ namespace CapaPresentacion
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dgvEstudiantes);
-            this.groupBox2.Location = new System.Drawing.Point(238, 130);
+            this.groupBox2.Location = new System.Drawing.Point(323, 130);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(365, 195);
             this.groupBox2.TabIndex = 11;
@@ -276,7 +277,7 @@ namespace CapaPresentacion
             this.flowLayoutPanel1.Controls.Add(this.nudNotaEstudiante);
             this.flowLayoutPanel1.Controls.Add(this.btnDarNota);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(241, 328);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(330, 328);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(365, 41);
             this.flowLayoutPanel1.TabIndex = 12;
@@ -301,6 +302,7 @@ namespace CapaPresentacion
             // 
             // btnDarNota
             // 
+            this.btnDarNota.Enabled = false;
             this.btnDarNota.Location = new System.Drawing.Point(268, 3);
             this.btnDarNota.Name = "btnDarNota";
             this.btnDarNota.Size = new System.Drawing.Size(90, 30);
@@ -313,7 +315,7 @@ namespace CapaPresentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(615, 374);
+            this.ClientSize = new System.Drawing.Size(707, 374);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox4);

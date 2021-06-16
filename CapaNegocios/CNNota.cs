@@ -1,10 +1,5 @@
 ﻿using CapaDatos;
 using Entidades;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CapaNegocios
 {
@@ -12,9 +7,10 @@ namespace CapaNegocios
     {
         NotasDB notasDB = new();
 
-        public void CrearNota(Nota n, long parcial)
+        public void CrearNota(Nota n, long parcial, long idmateria)
         {
             notasDB.numeroParcial = parcial;
+            notasDB.idmateria = idmateria;
             notasDB.Insertar(n);
         }
 

@@ -137,12 +137,17 @@ namespace CapaPresentacion
             // 
             // dgvEstudiantes
             // 
+            this.dgvEstudiantes.AllowUserToAddRows = false;
+            this.dgvEstudiantes.AllowUserToDeleteRows = false;
+            this.dgvEstudiantes.AllowUserToResizeColumns = false;
+            this.dgvEstudiantes.AllowUserToResizeRows = false;
             this.dgvEstudiantes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEstudiantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEstudiantes.Location = new System.Drawing.Point(12, 203);
             this.dgvEstudiantes.Name = "dgvEstudiantes";
+            this.dgvEstudiantes.ReadOnly = true;
             this.dgvEstudiantes.RowTemplate.Height = 25;
             this.dgvEstudiantes.Size = new System.Drawing.Size(621, 183);
             this.dgvEstudiantes.TabIndex = 5;
