@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using CapaDatos;
@@ -74,6 +75,7 @@ namespace GradeNote
                 edicionDeTxt(!true, 1);
                 LimpiarTxtGrupo();
                 btnAgregar.Text = "Guardar";
+               
                 txtGrado.Focus();
                 hayOperacion = true;
                 btnEditGroup.Enabled = false;

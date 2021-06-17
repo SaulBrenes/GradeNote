@@ -29,6 +29,7 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEstadistica));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -45,6 +46,7 @@ namespace CapaPresentacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Font = new System.Drawing.Font("Sylfaen", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(549, 185);
@@ -59,11 +61,12 @@ namespace CapaPresentacion
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 19);
+            this.dataGridView1.GridColor = System.Drawing.Color.White;
+            this.dataGridView1.Location = new System.Drawing.Point(3, 25);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(543, 163);
+            this.dataGridView1.Size = new System.Drawing.Size(543, 157);
             this.dataGridView1.TabIndex = 0;
             // 
             // groupBox2
@@ -72,6 +75,7 @@ namespace CapaPresentacion
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.dgvAsistencias);
+            this.groupBox2.Font = new System.Drawing.Font("Sylfaen", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.groupBox2.Location = new System.Drawing.Point(3, 191);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(549, 207);
@@ -86,11 +90,12 @@ namespace CapaPresentacion
             this.dgvAsistencias.AllowUserToResizeRows = false;
             this.dgvAsistencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAsistencias.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvAsistencias.Location = new System.Drawing.Point(3, 19);
+            this.dgvAsistencias.GridColor = System.Drawing.Color.White;
+            this.dgvAsistencias.Location = new System.Drawing.Point(3, 25);
             this.dgvAsistencias.Name = "dgvAsistencias";
             this.dgvAsistencias.ReadOnly = true;
             this.dgvAsistencias.RowTemplate.Height = 25;
-            this.dgvAsistencias.Size = new System.Drawing.Size(543, 185);
+            this.dgvAsistencias.Size = new System.Drawing.Size(543, 179);
             this.dgvAsistencias.TabIndex = 0;
             // 
             // FrmEstadistica
@@ -100,6 +105,7 @@ namespace CapaPresentacion
             this.ClientSize = new System.Drawing.Size(549, 410);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmEstadistica";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Estadisticas";

@@ -29,6 +29,7 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAsistencia));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvAsistencias = new System.Windows.Forms.DataGridView();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
@@ -60,7 +61,7 @@ namespace CapaPresentacion
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(181, 367);
+            this.groupBox1.Size = new System.Drawing.Size(181, 381);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Asistencias realizadas";
@@ -72,6 +73,7 @@ namespace CapaPresentacion
             this.dgvAsistencias.AllowUserToResizeRows = false;
             this.dgvAsistencias.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvAsistencias.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvAsistencias.BackgroundColor = System.Drawing.Color.White;
             this.dgvAsistencias.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SunkenHorizontal;
             this.dgvAsistencias.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAsistencias.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -81,7 +83,7 @@ namespace CapaPresentacion
             this.dgvAsistencias.ReadOnly = true;
             this.dgvAsistencias.RowTemplate.Height = 25;
             this.dgvAsistencias.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvAsistencias.Size = new System.Drawing.Size(175, 282);
+            this.dgvAsistencias.Size = new System.Drawing.Size(175, 296);
             this.dgvAsistencias.StandardTab = true;
             this.dgvAsistencias.TabIndex = 0;
             // 
@@ -91,7 +93,7 @@ namespace CapaPresentacion
             this.flowLayoutPanel1.Controls.Add(this.btnEliminar);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 301);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 315);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(175, 63);
             this.flowLayoutPanel1.TabIndex = 4;
@@ -125,18 +127,24 @@ namespace CapaPresentacion
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(181, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(423, 367);
+            this.groupBox2.Size = new System.Drawing.Size(423, 381);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Detalles de Asistencia seleccionada";
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(119, 57);
+            this.btnAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
+            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar.Location = new System.Drawing.Point(149, 57);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(169, 23);
+            this.btnAgregar.Size = new System.Drawing.Size(116, 50);
             this.btnAgregar.TabIndex = 6;
             this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
@@ -145,7 +153,7 @@ namespace CapaPresentacion
             this.groupBox3.Controls.Add(this.flowLayoutPanel2);
             this.groupBox3.Controls.Add(this.dgvAsistEst);
             this.groupBox3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.groupBox3.Location = new System.Drawing.Point(3, 98);
+            this.groupBox3.Location = new System.Drawing.Point(3, 112);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(417, 266);
             this.groupBox3.TabIndex = 5;
@@ -167,7 +175,7 @@ namespace CapaPresentacion
             // 
             this.btnPresente.Location = new System.Drawing.Point(3, 3);
             this.btnPresente.Name = "btnPresente";
-            this.btnPresente.Size = new System.Drawing.Size(88, 23);
+            this.btnPresente.Size = new System.Drawing.Size(88, 31);
             this.btnPresente.TabIndex = 0;
             this.btnPresente.Text = "PRESENTE";
             this.btnPresente.UseVisualStyleBackColor = true;
@@ -177,7 +185,7 @@ namespace CapaPresentacion
             // 
             this.btnAusente.Location = new System.Drawing.Point(97, 3);
             this.btnAusente.Name = "btnAusente";
-            this.btnAusente.Size = new System.Drawing.Size(88, 23);
+            this.btnAusente.Size = new System.Drawing.Size(88, 31);
             this.btnAusente.TabIndex = 1;
             this.btnAusente.Text = "AUSENTE";
             this.btnAusente.UseVisualStyleBackColor = true;
@@ -185,9 +193,10 @@ namespace CapaPresentacion
             // 
             // btnJustificado
             // 
+            this.btnJustificado.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnJustificado.Location = new System.Drawing.Point(191, 3);
             this.btnJustificado.Name = "btnJustificado";
-            this.btnJustificado.Size = new System.Drawing.Size(103, 23);
+            this.btnJustificado.Size = new System.Drawing.Size(103, 31);
             this.btnJustificado.TabIndex = 3;
             this.btnJustificado.Text = "JUSTIFICADO";
             this.btnJustificado.UseVisualStyleBackColor = true;
@@ -200,6 +209,7 @@ namespace CapaPresentacion
             this.dgvAsistEst.AllowUserToResizeRows = false;
             this.dgvAsistEst.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvAsistEst.BackgroundColor = System.Drawing.Color.White;
             this.dgvAsistEst.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvAsistEst.Location = new System.Drawing.Point(4, 22);
             this.dgvAsistEst.Name = "dgvAsistEst";
@@ -214,7 +224,7 @@ namespace CapaPresentacion
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(90, 28);
+            this.label1.Location = new System.Drawing.Point(90, 35);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 21);
             this.label1.TabIndex = 3;
@@ -226,7 +236,7 @@ namespace CapaPresentacion
             this.dtpFecha.CustomFormat = "yyyy-MM-dd";
             this.dtpFecha.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpFecha.Location = new System.Drawing.Point(149, 24);
+            this.dtpFecha.Location = new System.Drawing.Point(149, 31);
             this.dtpFecha.MaxDate = new System.DateTime(2021, 6, 3, 0, 0, 0, 0);
             this.dtpFecha.MinDate = new System.DateTime(2021, 1, 1, 0, 0, 0, 0);
             this.dtpFecha.Name = "dtpFecha";
@@ -238,7 +248,7 @@ namespace CapaPresentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(604, 367);
+            this.ClientSize = new System.Drawing.Size(604, 381);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmAsistencia";

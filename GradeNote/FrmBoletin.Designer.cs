@@ -45,9 +45,10 @@ namespace CapaPresentacion
             this.groupBox1.Controls.Add(this.dgvEstudiantes);
             this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.groupBox1.Font = new System.Drawing.Font("Sylfaen", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(281, 449);
+            this.groupBox1.Size = new System.Drawing.Size(281, 458);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lista estudiantes";
@@ -58,22 +59,25 @@ namespace CapaPresentacion
             this.dgvEstudiantes.AllowUserToDeleteRows = false;
             this.dgvEstudiantes.AllowUserToResizeColumns = false;
             this.dgvEstudiantes.AllowUserToResizeRows = false;
+            this.dgvEstudiantes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvEstudiantes.BackgroundColor = System.Drawing.Color.White;
             this.dgvEstudiantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEstudiantes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvEstudiantes.Location = new System.Drawing.Point(3, 19);
             this.dgvEstudiantes.Name = "dgvEstudiantes";
             this.dgvEstudiantes.ReadOnly = true;
             this.dgvEstudiantes.RowTemplate.Height = 25;
             this.dgvEstudiantes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEstudiantes.Size = new System.Drawing.Size(275, 404);
+            this.dgvEstudiantes.Size = new System.Drawing.Size(275, 407);
             this.dgvEstudiantes.TabIndex = 1;
             // 
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.button1.Location = new System.Drawing.Point(3, 423);
+            this.button1.Location = new System.Drawing.Point(3, 425);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(275, 23);
+            this.button1.Size = new System.Drawing.Size(275, 30);
             this.button1.TabIndex = 0;
             this.button1.Text = "Vista previa";
             this.button1.UseVisualStyleBackColor = true;
@@ -83,20 +87,23 @@ namespace CapaPresentacion
             // 
             this.groupBox2.Controls.Add(this.flowLayoutPanel2);
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Font = new System.Drawing.Font("Sylfaen", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
             this.groupBox2.Location = new System.Drawing.Point(281, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(557, 449);
+            this.groupBox2.Size = new System.Drawing.Size(557, 458);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Vista y guardado";
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 19);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(551, 427);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(551, 436);
             this.flowLayoutPanel2.TabIndex = 1;
             // 
             // openFileDialog1
@@ -107,7 +114,7 @@ namespace CapaPresentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(838, 449);
+            this.ClientSize = new System.Drawing.Size(838, 458);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmBoletin";

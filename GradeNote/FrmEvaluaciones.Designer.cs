@@ -109,7 +109,7 @@ namespace CapaPresentacion
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(591, 12);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(101, 92);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(116, 131);
             this.flowLayoutPanel2.TabIndex = 8;
             // 
             // btnAgregar
@@ -118,7 +118,7 @@ namespace CapaPresentacion
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAgregar.Location = new System.Drawing.Point(3, 3);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(89, 23);
+            this.btnAgregar.Size = new System.Drawing.Size(89, 31);
             this.btnAgregar.TabIndex = 7;
             this.btnAgregar.Text = "AGREGAR";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -128,9 +128,9 @@ namespace CapaPresentacion
             // 
             this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEliminar.Location = new System.Drawing.Point(3, 32);
+            this.btnEliminar.Location = new System.Drawing.Point(3, 40);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(89, 23);
+            this.btnEliminar.Size = new System.Drawing.Size(89, 36);
             this.btnEliminar.TabIndex = 8;
             this.btnEliminar.Text = "ELIMINAR";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -142,9 +142,9 @@ namespace CapaPresentacion
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancelar.AutoSize = true;
             this.btnCancelar.Enabled = false;
-            this.btnCancelar.Location = new System.Drawing.Point(3, 61);
+            this.btnCancelar.Location = new System.Drawing.Point(3, 82);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(89, 25);
+            this.btnCancelar.Size = new System.Drawing.Size(89, 31);
             this.btnCancelar.TabIndex = 9;
             this.btnCancelar.Text = "CANCELAR";
             this.btnCancelar.UseVisualStyleBackColor = true;
