@@ -59,10 +59,15 @@ namespace CapaPresentacion
                 ValidarCampoValorEvaluacion();
                 return;
             }
+            if (string.IsNullOrEmpty(txtNombre.Text))
+            {
+                MessageBox.Show("La Evaluacion requiere un nombre", "Error Box Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             if (!SeAgrega)
             {
-                MessageBox.Show("No se pueden agregar más evaluaciones. Alcanzo el 100% en el Parcial");
+                MessageBox.Show("No se pueden agregar más evaluaciones. Alcanzo el 100% en el Parcial", "Error Box Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             //*****Al agregar que el valor no sea cero
@@ -202,6 +207,7 @@ namespace CapaPresentacion
             int parcial = (int)nudParcial.Value;
             long valorAcumulado = 0;
             SeAgrega = true;
+
             switch (parcial)
             {
                 case 1:

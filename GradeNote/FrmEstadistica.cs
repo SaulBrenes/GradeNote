@@ -119,6 +119,7 @@ namespace CapaPresentacion
                     promedioMateria += nota;
 
                     promedio += promedioMateria / 4;
+
                 }
                  promedio /= materias.Count;
                 est.promedio = promedio;

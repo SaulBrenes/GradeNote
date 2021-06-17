@@ -90,55 +90,56 @@ namespace CapaPresentacion
             textBox1.Text = materias.ElementAt(index).nombre;
             ActualizarTablaEstudiantes();
         }
-
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void ValidarMaterias(string nombre)
         {
-            if (btnAgregar.Text.Equals("AGREGAR"))
+            if (string.IsNullOrWhiteSpace(nombre))
             {
-                textBox1.ReadOnly = false;
-                textBox1.Text = "";
-                textBox1.Focus();
-                btnEditar.Enabled = false;
-                btnIngresar.Enabled = false;
-                btnEliminar.Enabled = false;
-                btnCancelar.Enabled = true;
-                btnAgregar.Text = "GUARDAR";
-                return;
+                throw new ArgumentException("El nombre de la materia es requerido");
             }
 
-            Materia nuevo = new Materia
-            {
-                id_grupo = id_grupo,
-                nombre = textBox1.Text
-            };
-            cnMateria.CrearMateria(nuevo);
-
-            textBox1.ReadOnly = true;
-            btnEditar.Enabled = true;
-            btnIngresar.Enabled = true;
-            btnEliminar.Enabled = true;
-            btnCancelar.Enabled = false;
-            btnAgregar.Text = "AGREGAR";
-
-            ActualizarComboBoxMaterias();
-            cmbMateria.SelectedIndex = materias.Count - 1;
         }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (btnAgregar.Text.Equals("GUARDAR"))
+            try
             {
+                if (btnAgregar.Text.Equals("AGREGAR"))
+                {
+                    textBox1.ReadOnly = false;
+                    textBox1.Text = "";
+                    textBox1.Focus();
+                    btnEditar.Enabled = false;
+                    btnIngresar.Enabled = false;
+                    btnEliminar.Enabled = false;
+                    btnCancelar.Enabled = true;
+                    btnAgregar.Text = "GUARDAR";
+                    return;
+                }
+                ValidarMaterias(textBox1.Text);
+                Materia nuevo = new Materia
+                {
+                    id_grupo = id_grupo,
+                    nombre = textBox1.Text
+                };
+                cnMateria.CrearMateria(nuevo);
+
                 textBox1.ReadOnly = true;
                 btnEditar.Enabled = true;
                 btnIngresar.Enabled = true;
                 btnEliminar.Enabled = true;
                 btnCancelar.Enabled = false;
                 btnAgregar.Text = "AGREGAR";
-                int i = cmbMateria.SelectedIndex;
-                cmbMateria.SelectedIndex = -1;
-                cmbMateria.SelectedIndex = i;
-            }
 
+                ActualizarComboBoxMaterias();
+                cmbMateria.SelectedIndex = materias.Count - 1;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error Box Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
             if (btnEditar.Text.Equals("GUARDAR"))
             {
                 textBox1.ReadOnly = true;
@@ -147,6 +148,18 @@ namespace CapaPresentacion
                 btnEliminar.Enabled = true;
                 btnCancelar.Enabled = false;
                 btnEditar.Text = "EDITAR";
+                int i = cmbMateria.SelectedIndex;
+                cmbMateria.SelectedIndex = -1;
+                cmbMateria.SelectedIndex = i;
+            }
+            if (btnAgregar.Text.Equals("GUARDAR"))
+            {
+                textBox1.ReadOnly = true;
+                btnEditar.Enabled = true;
+                btnIngresar.Enabled = true;
+                btnEliminar.Enabled = true;
+                btnCancelar.Enabled = false;
+                btnAgregar.Text = "AGREGAR";
                 int i = cmbMateria.SelectedIndex;
                 cmbMateria.SelectedIndex = -1;
                 cmbMateria.SelectedIndex = i;
@@ -166,37 +179,44 @@ namespace CapaPresentacion
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if(materias.Count <= 0)
+            try
             {
-                return;
-            }
+                if (materias.Count <= 0)
+                {
+                    return;
+                }
 
-            if (btnEditar.Text.Equals("EDITAR"))
+                if (btnEditar.Text.Equals("EDITAR"))
+                {
+                    textBox1.ReadOnly = false;
+                    textBox1.Focus();
+                    btnAgregar.Enabled = false;
+                    btnIngresar.Enabled = false;
+                    btnEliminar.Enabled = false;
+                    btnCancelar.Enabled = true;
+                    btnEditar.Text = "GUARDAR";
+                    return;
+                }
+                ValidarMaterias(textBox1.Text);
+                int index = cmbMateria.SelectedIndex;
+                materias.ElementAt(index).nombre = textBox1.Text;
+                cnMateria.EditarMateria(materias.ElementAt(index));
+
+                textBox1.ReadOnly = true;
+                btnAgregar.Enabled = true;
+                btnIngresar.Enabled = true;
+                btnEliminar.Enabled = true;
+                btnCancelar.Enabled = false;
+                btnEditar.Text = "EDITAR";
+
+                ActualizarComboBoxMaterias();
+                cmbMateria.SelectedIndex = -1;
+                cmbMateria.SelectedIndex = index;
+            }
+            catch (Exception ex)
             {
-                textBox1.ReadOnly = false;
-                textBox1.Focus();
-                btnAgregar.Enabled = false;
-                btnIngresar.Enabled = false;
-                btnEliminar.Enabled = false;
-                btnCancelar.Enabled = true;
-                btnEditar.Text = "GUARDAR";
-                return;
+                MessageBox.Show(ex.Message, "Error Box Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            int index = cmbMateria.SelectedIndex;
-            materias.ElementAt(index).nombre = textBox1.Text;
-            cnMateria.EditarMateria(materias.ElementAt(index));
-
-            textBox1.ReadOnly = true;
-            btnAgregar.Enabled = true;
-            btnIngresar.Enabled = true;
-            btnEliminar.Enabled = true;
-            btnCancelar.Enabled = false;
-            btnEditar.Text = "EDITAR";
-
-            ActualizarComboBoxMaterias();
-            cmbMateria.SelectedIndex = -1;
-            cmbMateria.SelectedIndex = index;
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

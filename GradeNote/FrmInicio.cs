@@ -41,60 +41,99 @@ namespace GradeNote
         //Editar datos del colegio
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            if (btnEditar.Text.Equals("Editar"))
+            try
             {
-                edicionDeTxt(!true, 0);
-                btnEditar.Text = "Guardar cambios";
-                txtNombre.Focus();
-            }
-            else
-            {
-                //Colegio colegio = new Colegio(txtNombre.Text, txtDirector.Text, txtMunicipio.Text, txtDepartamento.Text, txtNucleo.Text, txtProfesor.Text);
-                Colegio colegio = new Colegio
+                if (btnEditar.Text.Equals("Editar"))
                 {
-                    nombre = txtNombre.Text,
-                    director = txtDirector.Text,
-                    municipio = txtMunicipio.Text,
-                    departamento = txtDepartamento.Text,
-                    profesor = txtProfesor.Text,
-                    nucleoEducativo = txtNucleo.Text
-                };
-                Ncolegio.EditarDatosColegio(colegio);
-                actualizarColegio();
-                edicionDeTxt(!false, 0);
-                btnEditar.Text = "Editar";  
-            }  
+                    edicionDeTxt(!true, 0);
+                    btnEditar.Text = "Guardar cambios";
+                    txtNombre.Focus();
+                }
+                else
+                {
+                    ValidarGrado(txtGrado.Text, txtTurno.Text, out Int64 ano);
+                    //Colegio colegio = new Colegio(txtNombre.Text, txtDirector.Text, txtMunicipio.Text, txtDepartamento.Text, txtNucleo.Text, txtProfesor.Text);
+                    Colegio colegio = new Colegio
+                    {
+                        nombre = txtNombre.Text,
+                        director = txtDirector.Text,
+                        municipio = txtMunicipio.Text,
+                        departamento = txtDepartamento.Text,
+                        profesor = txtProfesor.Text,
+                        nucleoEducativo = txtNucleo.Text
+                    };
+                    Ncolegio.EditarDatosColegio(colegio);
+                    actualizarColegio();
+                    edicionDeTxt(!false, 0);
+                    btnEditar.Text = "Editar";
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error Box Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-        
+
+        //Metodo para validar campos de texto
+        private void ValidarGrado(string grado, string turno,out Int64 anio )
+        {
+            if (string.IsNullOrWhiteSpace(grado))
+            {
+                throw new ArgumentException("El Grado es requerido");
+            }
+            if (string.IsNullOrWhiteSpace(turno))
+            {
+                throw new ArgumentException("El Turno es requerido");
+            }
+            if (!Int64.TryParse(txtAnio.Text, out Int64 ano))
+            {
+                throw new ArgumentException($"El valor del año lectivo no es valido");
+            }
+            anio = ano;
+            if (anio < 0)
+            {
+                throw new ArgumentException($"No se admiten valores negativos");
+            }
+
+        }
+
         //Metodo para agregar un grupo
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (btnAgregar.Text.Equals("Agregar"))
-            {
-                edicionDeTxt(!true, 1);
-                LimpiarTxtGrupo();
-                btnAgregar.Text = "Guardar";
-                txtGrado.Focus();
-                hayOperacion = true;
-                btnEditGroup.Enabled = false;
-                btnEliminar.Enabled = false;
-                return;
-            }
-            
-            //Guardando nuevo grupo y actulizando objetos datos
-            Int64 anio = Int64.Parse(txtAnio.Text);
-            Grupo g = new Grupo(txtGrado.Text, txtTurno.Text, anio);
-            n_Grupo.AgregarNuevoGrupo(g);
-            grupos = n_Grupo.ObtenerListaGrupos();
-            ActualizarComboBox();
 
-            //Limpiando seleccion para seleccionar el nuevo grupo creado
-            cmbGrupos.SelectedIndex = grupos.Count - 1;
-            btnAgregar.Text=  "Agregar";
-            edicionDeTxt(!false, 1);
-            btnEditGroup.Enabled = true;
-            btnEliminar.Enabled = true;
-            hayOperacion = false;
+            try
+            {
+                if (btnAgregar.Text.Equals("Agregar"))
+                {
+                    edicionDeTxt(!true, 1);
+                    LimpiarTxtGrupo();
+                    btnAgregar.Text = "Guardar";
+                    txtGrado.Focus();
+                    hayOperacion = true;
+                    btnEditGroup.Enabled = false;
+                    btnEliminar.Enabled = false;
+                    return;
+                }
+
+                //Guardando nuevo grupo y actulizando objetos datos
+                Int64 anio = Int64.Parse(txtAnio.Text);
+                Grupo g = new Grupo(txtGrado.Text, txtTurno.Text, anio);
+                n_Grupo.AgregarNuevoGrupo(g);
+                grupos = n_Grupo.ObtenerListaGrupos();
+                ActualizarComboBox();
+
+                //Limpiando seleccion para seleccionar el nuevo grupo creado
+                cmbGrupos.SelectedIndex = grupos.Count - 1;
+                btnAgregar.Text = "Agregar";
+                edicionDeTxt(!false, 1);
+                btnEditGroup.Enabled = true;
+                btnEliminar.Enabled = true;
+                hayOperacion = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error Box Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         //Método para ingresar al formulario grupo
@@ -186,39 +225,47 @@ namespace GradeNote
         //VALIDAR: entrada de datos y cuando no hay grupos creados
         private void btnEditGroup_Click(object sender, EventArgs e)
         {
-            if(grupos.Count == 0)
+            try
             {
-                LimpiarTxtGrupo();
-                return;
-            }
+                if (grupos.Count == 0)
+                {
+                    LimpiarTxtGrupo();
+                    return;
+                }
 
-            if (btnEditGroup.Text.Equals("Editar"))
+                if (btnEditGroup.Text.Equals("Editar"))
+                {
+                    edicionDeTxt(!true, 1);
+                    btnEditGroup.Text = "Guardar";
+                    txtGrado.Focus();
+                    hayOperacion = true;
+                    btnAgregar.Enabled = false;
+                    btnEliminar.Enabled = false;
+                    return;
+                }
+
+                //Guardando nuevo grupo y actulizando objetos datos
+                ValidarGrado(txtGrado.Text, txtTurno.Text, out Int64 ano);
+                int index = cmbGrupos.SelectedIndex;
+                Int64 anio = Int64.Parse(txtAnio.Text);
+                Grupo g = new Grupo(grupos.ElementAt(index).id, txtGrado.Text, txtTurno.Text, anio);
+                n_Grupo.EditarGrupo(g);
+                grupos = n_Grupo.ObtenerListaGrupos();
+                ActualizarComboBox();
+
+                //Limpiando seleccion para seleccionar el nuevo grupo editado
+                cmbGrupos.SelectedIndex = -1;
+                cmbGrupos.SelectedIndex = index;
+                btnEditGroup.Text = "Editar";
+                edicionDeTxt(!false, 1);
+                btnAgregar.Enabled = true;
+                btnEliminar.Enabled = true;
+                hayOperacion = false;
+            }
+            catch (Exception ex)
             {
-                edicionDeTxt(!true, 1);
-                btnEditGroup.Text = "Guardar";
-                txtGrado.Focus();
-                hayOperacion = true;
-                btnAgregar.Enabled = false;
-                btnEliminar.Enabled = false;
-                return;
+                MessageBox.Show(ex.Message, "Error Box Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            //Guardando nuevo grupo y actulizando objetos datos
-            int index = cmbGrupos.SelectedIndex;
-            Int64 anio = Int64.Parse(txtAnio.Text);
-            Grupo g = new Grupo(grupos.ElementAt(index).id,txtGrado.Text, txtTurno.Text, anio);
-            n_Grupo.EditarGrupo(g);
-            grupos = n_Grupo.ObtenerListaGrupos();
-            ActualizarComboBox();
-
-            //Limpiando seleccion para seleccionar el nuevo grupo editado
-            cmbGrupos.SelectedIndex = -1;
-            cmbGrupos.SelectedIndex = index;
-            btnEditGroup.Text = "Editar";
-            edicionDeTxt(!false, 1);
-            btnAgregar.Enabled = true;
-            btnEliminar.Enabled = true;
-            hayOperacion = false;
         }
 
         private void BtnCancelar_Click(object sender, EventArgs e)
