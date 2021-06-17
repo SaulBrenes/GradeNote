@@ -28,12 +28,15 @@ namespace CapaPresentacion
             dtpFecha.Value = DateTime.Today;
         }
 
+        
+
         private void FrmAsistencia_Load(object sender, EventArgs e)
         {
             estudiantes = CNestudiante.ListaEstudiantes(id_grupo);
             if(estudiantes.Count == 0)
             {
-                return;
+                MessageBox.Show("No hay estudiantes registrados.");
+                this.Close();
             }
 
             dgvAsistencias.DataSource = CNasistencia.ObtenerFechasAsistencias(id_grupo);
@@ -46,6 +49,11 @@ namespace CapaPresentacion
             {
                 fecha = dtpFecha.Value.ToString()
             };
+
+            if (CNasistencia.ValidarAsistencia(nueva.fecha, id_grupo)) {
+                MessageBox.Show("Ya se creo esta Asistencia " + nueva.fecha);
+                return;
+            }
 
             foreach (Estudiante est in estudiantes)
             {

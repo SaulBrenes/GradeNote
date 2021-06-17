@@ -70,6 +70,14 @@ namespace CapaPresentacion
             }
 
             //Creando nuevo estudiante con los datos ingresados
+
+            //Validando duplicado
+            if (cnEst.EsDuplicado(id_grupo, txtCodigo.Text))
+            {
+                MessageBox.Show("Ya se creo un estudiante con ese codigo");
+                return;
+            }   
+
             Estudiante nuevoEst = new Estudiante
             {
                 id_grupo = id_grupo,
@@ -163,6 +171,9 @@ namespace CapaPresentacion
                 //Mostrando datos del estudiante seleccionado
                 dgvEstudiantes.ClearSelection();
                 btnAgregar.Text = "Agregar";
+                txtNombres.Text = "";
+                txtApellidos.Text = "";
+                txtCodigo.Text = "";
             }
 
             //Cancelar la edicion de un estudiante
