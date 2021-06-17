@@ -29,6 +29,7 @@ namespace CapaPresentacion
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEvaluaciones));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnSeleccionar = new System.Windows.Forms.Button();
             this.dgvEvaluaciones = new System.Windows.Forms.DataGridView();
@@ -63,12 +64,14 @@ namespace CapaPresentacion
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.btnSeleccionar);
             this.groupBox1.Controls.Add(this.dgvEvaluaciones);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(315, 374);
+            this.groupBox1.Size = new System.Drawing.Size(317, 376);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lista Evaluaciones";
@@ -76,9 +79,11 @@ namespace CapaPresentacion
             // btnSeleccionar
             // 
             this.btnSeleccionar.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnSeleccionar.Location = new System.Drawing.Point(3, 348);
+            this.btnSeleccionar.Image = ((System.Drawing.Image)(resources.GetObject("btnSeleccionar.Image")));
+            this.btnSeleccionar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSeleccionar.Location = new System.Drawing.Point(3, 331);
             this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Size = new System.Drawing.Size(309, 23);
+            this.btnSeleccionar.Size = new System.Drawing.Size(311, 42);
             this.btnSeleccionar.TabIndex = 6;
             this.btnSeleccionar.Text = "SELECCIONAR";
             this.btnSeleccionar.UseVisualStyleBackColor = true;
@@ -90,15 +95,18 @@ namespace CapaPresentacion
             this.dgvEvaluaciones.AllowUserToDeleteRows = false;
             this.dgvEvaluaciones.AllowUserToResizeRows = false;
             this.dgvEvaluaciones.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvEvaluaciones.BackgroundColor = System.Drawing.Color.White;
             this.dgvEvaluaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEvaluaciones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvEvaluaciones.GridColor = System.Drawing.Color.DarkGray;
             this.dgvEvaluaciones.Location = new System.Drawing.Point(3, 19);
             this.dgvEvaluaciones.Name = "dgvEvaluaciones";
             this.dgvEvaluaciones.ReadOnly = true;
             this.dgvEvaluaciones.RowTemplate.Height = 25;
             this.dgvEvaluaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvEvaluaciones.Size = new System.Drawing.Size(309, 352);
+            this.dgvEvaluaciones.Size = new System.Drawing.Size(311, 354);
             this.dgvEvaluaciones.TabIndex = 0;
+            this.dgvEvaluaciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEvaluaciones_RowEnter);
             this.dgvEvaluaciones.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEvaluaciones_RowEnter);
             // 
             // flowLayoutPanel2
@@ -152,6 +160,9 @@ namespace CapaPresentacion
             // 
             // groupBox4
             // 
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.nudParcial);
             this.groupBox4.Controls.Add(this.nudValor);
             this.groupBox4.Controls.Add(this.label4);
@@ -259,9 +270,12 @@ namespace CapaPresentacion
             this.dgvEstudiantes.AllowUserToAddRows = false;
             this.dgvEstudiantes.AllowUserToDeleteRows = false;
             this.dgvEstudiantes.AllowUserToResizeRows = false;
+            this.dgvEstudiantes.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEstudiantes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvEstudiantes.BackgroundColor = System.Drawing.Color.White;
             this.dgvEstudiantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEstudiantes.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvEstudiantes.GridColor = System.Drawing.Color.DarkGray;
             this.dgvEstudiantes.Location = new System.Drawing.Point(3, 19);
             this.dgvEstudiantes.Name = "dgvEstudiantes";
             this.dgvEstudiantes.ReadOnly = true;
@@ -283,10 +297,13 @@ namespace CapaPresentacion
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(203, 29);
+            this.label1.Size = new System.Drawing.Size(0, 29);
             this.label1.TabIndex = 17;
             this.label1.Text = "Estudiantes seleccionados:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -294,7 +311,7 @@ namespace CapaPresentacion
             // nudNotaEstudiante
             // 
             this.nudNotaEstudiante.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.nudNotaEstudiante.Location = new System.Drawing.Point(212, 3);
+            this.nudNotaEstudiante.Location = new System.Drawing.Point(9, 3);
             this.nudNotaEstudiante.Name = "nudNotaEstudiante";
             this.nudNotaEstudiante.Size = new System.Drawing.Size(50, 29);
             this.nudNotaEstudiante.TabIndex = 19;
@@ -302,7 +319,7 @@ namespace CapaPresentacion
             // btnDarNota
             // 
             this.btnDarNota.Enabled = false;
-            this.btnDarNota.Location = new System.Drawing.Point(268, 3);
+            this.btnDarNota.Location = new System.Drawing.Point(65, 3);
             this.btnDarNota.Name = "btnDarNota";
             this.btnDarNota.Size = new System.Drawing.Size(90, 30);
             this.btnDarNota.TabIndex = 18;
@@ -314,12 +331,13 @@ namespace CapaPresentacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 374);
+            this.ClientSize = new System.Drawing.Size(707, 388);
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.flowLayoutPanel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmEvaluaciones";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Evaluaciones";

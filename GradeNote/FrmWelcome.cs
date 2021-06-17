@@ -27,7 +27,7 @@ namespace CapaPresentacion
         {
             progressBarWelcome.Increment(3);
             lblPorcentaje.Text = progressBarWelcome.Value.ToString() + "%";
-            Opacity -= 0.02;
+            Opacity -= 0.01;
             if (progressBarWelcome.Value == progressBarWelcome.Maximum)
             {
                 timer1.Stop();
@@ -36,5 +36,6 @@ namespace CapaPresentacion
                 frmInicio.ShowDialog();
             }
         }
+
     }
 }

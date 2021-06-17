@@ -251,6 +251,7 @@ namespace CapaPresentacion
             this.ClientSize = new System.Drawing.Size(604, 381);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAsistencia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Asistencia";
