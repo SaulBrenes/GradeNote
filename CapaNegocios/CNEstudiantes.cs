@@ -28,6 +28,12 @@ namespace CapaNegocios
             dBEstudiante.Eliminar(idEst);
         }
 
+        public bool EsDuplicado(int idGrupo, string codigo)
+        {
+            dBEstudiante.idGrupo = idGrupo;
+            return dBEstudiante.RevisarDuplicado(codigo);
+        }
+
         public DataTable TablaEstudiantesDelGrupo(int idGrupo)
         {
             dBEstudiante.idGrupo = idGrupo;

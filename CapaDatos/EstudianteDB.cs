@@ -11,6 +11,15 @@ namespace CapaDatos
     {
         public int idGrupo{get; set;}
 
+        public bool RevisarDuplicado(string codigo)
+        {
+            string sentencia = $"SELECT * FROM Estudiantes WHERE codigo = \"{codigo}\" AND id_grupo = {idGrupo}";
+            if(loadData(sentencia).Rows.Count == 0)
+            {
+                return false;
+            }
+            return true;
+        }
         public bool Insertar(Estudiante nuevoObjeto)
         {
             string sentencia = $"INSERT INTO Estudiantes(id_grupo,nombres,apellidos,codigo) VALUES (\"{nuevoObjeto.id_grupo}\",\"{nuevoObjeto.nombres}\",\"{nuevoObjeto.apellidos}\",\"{nuevoObjeto.codigo}\")";

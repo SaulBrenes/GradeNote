@@ -19,6 +19,16 @@ namespace CapaNegocios
             dbAsistencia.Insertar(asistencia);
         }
 
+        public bool ValidarAsistencia(string fecha, int idgrupo)
+        {
+            if (dbAsistencia.loadData($"SELECT * FROM Asistencias WHERE fecha = \"{fecha}\" AND id_grupo = {idgrupo}").Rows.Count == 0)
+            {
+                return false;
+            }
+
+            return true;
+        }
+
         public System.Data.DataTable ObtenerFechasAsistencias(int idgrupo)
         {
             dbAsistencia.idgrupo = idgrupo;
