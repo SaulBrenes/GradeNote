@@ -104,6 +104,7 @@ namespace GradeNote
 
             try
             {
+//<<<<<<< HEAD
                 if (btnAgregar.Text.Equals("Agregar"))
                 {
                     edicionDeTxt(!true, 1);

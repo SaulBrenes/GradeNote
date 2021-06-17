@@ -102,6 +102,7 @@ namespace CapaPresentacion
             double nota = 0;
             foreach (Estudiante est in estudiantes)
             {
+                promedio = 0;
                 foreach (Materia m in materias)
                 {
                     promedioMateria = 0;
@@ -118,7 +119,7 @@ namespace CapaPresentacion
                     nota = cnMateria.NotaParcialDeEstudiante(est.id, m.id, 4);
                     promedioMateria += nota;
 
-                    promedio += promedioMateria / 4;
+                    promedio = promedio + (promedioMateria / 4);
 
                 }
                  promedio /= materias.Count;
