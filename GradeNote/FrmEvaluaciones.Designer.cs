@@ -99,6 +99,7 @@ namespace CapaPresentacion
             this.dgvEvaluaciones.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEvaluaciones.Size = new System.Drawing.Size(309, 352);
             this.dgvEvaluaciones.TabIndex = 0;
+            this.dgvEvaluaciones.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEvaluaciones_RowEnter);
             // 
             // flowLayoutPanel2
             // 
@@ -180,9 +181,8 @@ namespace CapaPresentacion
             0,
             0});
             this.nudParcial.Name = "nudParcial";
-            this.nudParcial.ReadOnly = true;
             this.nudParcial.Size = new System.Drawing.Size(138, 23);
-            this.nudParcial.TabIndex = 20;
+            this.nudParcial.TabIndex = 19;
             this.nudParcial.Value = new decimal(new int[] {
             1,
             0,
@@ -201,9 +201,8 @@ namespace CapaPresentacion
             0,
             0});
             this.nudValor.Name = "nudValor";
-            this.nudValor.ReadOnly = true;
             this.nudValor.Size = new System.Drawing.Size(138, 23);
-            this.nudValor.TabIndex = 19;
+            this.nudValor.TabIndex = 20;
             this.nudValor.Value = new decimal(new int[] {
             1,
             0,
@@ -322,6 +321,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.flowLayoutPanel2);
             this.Name = "FrmEvaluaciones";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Evaluaciones";
             this.Load += new System.EventHandler(this.FrmEvaluaciones_Load);
             this.groupBox1.ResumeLayout(false);

@@ -42,7 +42,38 @@ namespace CapaPresentacion
             {
                 return;
             }
-            dgvEstudiantes.DataSource = cnestudiantes.ObtenerNotaEstudiante(id_grupo, (int)materias.ElementAt(index).id);
+            List<Estudiante> estudiantes =  cnestudiantes.ListaEstudiantes(id_grupo);
+            if(estudiantes == null)
+            {
+                return;
+            }
+
+            if (estudiantes.Count == 0 )
+            {
+                return;
+            }
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Apellido", typeof(string));
+            dt.Columns.Add("Nombre", typeof(string));
+            dt.Columns.Add("IP", typeof(double));
+            dt.Columns.Add("IIP", typeof(double));
+            dt.Columns.Add("IIIP", typeof(double));
+            dt.Columns.Add("IVP", typeof(double));
+           
+            int k = 0;
+            foreach(Estudiante est in estudiantes)
+            {
+                dt.Rows.Add();
+                dt.Rows[k].SetField(0, est.apellidos);
+                dt.Rows[k].SetField(1, est.nombres);
+                dt.Rows[k].SetField(2, cnMateria.NotaParcialDeEstudiante(est.id, materias.ElementAt(index).id, 1));
+                dt.Rows[k].SetField(3, cnMateria.NotaParcialDeEstudiante(est.id, materias.ElementAt(index).id, 2));
+                dt.Rows[k].SetField(4, cnMateria.NotaParcialDeEstudiante(est.id, materias.ElementAt(index).id, 3));
+                dt.Rows[k].SetField(5, cnMateria.NotaParcialDeEstudiante(est.id, materias.ElementAt(index).id, 4));
+                k++;
+            }
+            dgvEstudiantes.DataSource = dt;
+            //dgvEstudiantes.DataSource = cnestudiantes.ObtenerNotaEstudiante(id_grupo, (int)materias.ElementAt(index).id);
         }
 
         private void cmbMateria_SelectedIndexChanged(object sender, EventArgs e)

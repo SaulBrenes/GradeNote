@@ -13,6 +13,7 @@ namespace CapaDatos
         public Int64 idEstudiante { get; set; }
 
         public long numeroParcial { get; set; }
+
         public long idmateria{ get; set; }
 
         public bool Insertar(Nota nuevoObjeto)
@@ -109,6 +110,33 @@ namespace CapaDatos
         public List<Nota> ObtenerListaDeTodos()
         {
             throw new NotImplementedException();
+        }
+
+        public List<Nota> ObtenerListaDeNotasDelEMP()
+        {
+            try { 
+                string sentencia = "";
+                switch (numeroParcial)
+            {
+                case 1:
+                    sentencia = $"SELECT * FROM NotasIP Where NotasIP.id_estudiante = {idEstudiante} AND NotasIP.idmateria = {idmateria}";
+                    break;
+                case 2:
+                    sentencia = $"SELECT * FROM NotasIIP Where NotasIIP.id_estudiante = {idEstudiante} AND NotasIIP.idmateria = {idmateria}";
+                    break;
+                case 3:
+                    sentencia = $"SELECT * FROM NotasIIIP Where NotasIIIP.id_estudiante = {idEstudiante} AND NotasIIIP.idmateria = {idmateria}";
+                    break;
+                case 4:
+                    sentencia = $"SELECT * FROM NotasIVP Where NotasIVP.id_estudiante = {idEstudiante} AND NotasIVP.idmateria = {idmateria}";
+                    break;
+            }            
+               return ConvertirDataTabletoClase<Nota>(loadData(sentencia));
+            }
+            catch
+            {
+                return null;
+            }
         }
 
        public System.Data.DataTable ObtenerNotasDeEvluacion(int idEvaluacion)

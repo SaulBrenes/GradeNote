@@ -242,6 +242,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmAsistencia";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Asistencia";
             this.Load += new System.EventHandler(this.FrmAsistencia_Load);
             this.groupBox1.ResumeLayout(false);

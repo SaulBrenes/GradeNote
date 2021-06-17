@@ -17,6 +17,10 @@ namespace CapaPresentacion
         public int id_grupo { get; set; }
         CNEstudiantes cnEstudiantes = new ();
         CNAsistencia cnAsitencia = new ();
+        List<Estudiante> estudiantes;
+        CN_Materia cnMateria = new();
+        public List<Materia> materias;
+        List<double> promedios = new List<double>();
 
         public FrmEstadistica()
         {
@@ -25,12 +29,20 @@ namespace CapaPresentacion
 
         private void FrmEstadistica_Load(object sender, EventArgs e)
         {
+            estudiantes = cnEstudiantes.ListaEstudiantes(id_grupo);
+            materias = cnMateria.ObtenerMateriasDelGrupo(id_grupo);
+            if (estudiantes.Count == 0 || materias.Count == 0)
+            {
+                MessageBox.Show("No hay estudiantes o materias creadas");
+                this.Close();
+            }
             CargarDGVAsitencias();
+            CargarDGVPromedio();
         }
 
         private void CargarDGVAsitencias()
         {
-            List<Estudiante> estudiantes = cnEstudiantes.ListaEstudiantes(id_grupo);
+           
             int cantidaEstudiantes = estudiantes.Count;
             if(cantidaEstudiantes == 0)
             {
@@ -76,6 +88,75 @@ namespace CapaPresentacion
             }
            
 
+        }
+
+        private void CargarDGVPromedio()
+        {
+            if (estudiantes.Count == 0)
+            {
+                return;
+            }
+
+            double promedio = 0;
+            double promedioMateria = 0;
+            double nota = 0;
+            foreach (Estudiante est in estudiantes)
+            {
+                foreach (Materia m in materias)
+                {
+                    promedioMateria = 0;
+
+                    nota = cnMateria.NotaParcialDeEstudiante(est.id, m.id, 1);
+                    promedioMateria += nota;
+
+                    nota = cnMateria.NotaParcialDeEstudiante(est.id, m.id, 2);
+                    promedioMateria += nota;
+
+                    nota = cnMateria.NotaParcialDeEstudiante(est.id, m.id, 3);
+                    promedioMateria += nota;
+
+                    nota = cnMateria.NotaParcialDeEstudiante(est.id, m.id, 4);
+                    promedioMateria += nota;
+
+                    promedio += promedioMateria / 4;
+                }
+                 promedio /= materias.Count;
+                est.promedio = promedio;
+            }
+
+            //Ordenando de forma descendente
+            estudiantes.Sort(delegate (Estudiante x, Estudiante y)
+            {
+                if (x.promedio == 0 && y.promedio == 0) return -1;
+                else if (x.promedio == 0) return 1;
+                else if (y.promedio == 0) return -1;
+                else return (-1) * x.promedio.CompareTo(y.promedio);
+            });
+
+            CreandoTablaPromedio(estudiantes);
+        }
+
+        private void CreandoTablaPromedio(List<Estudiante> estudiantes)
+        {
+            //Creando columnas
+            dataGridView1.Columns.Add("column0", "Codigo");
+            dataGridView1.Columns.Add("column1", "Apellido");
+            dataGridView1.Columns.Add("column2", "Nombre");
+            dataGridView1.Columns.Add("column3", "Promedio");
+
+            for(int k= 0; k < estudiantes.Count; k++)
+            {
+                if (k == 10)
+                {
+                    break;
+                }
+                dataGridView1.Rows.Add();
+                dataGridView1.Rows[k].Cells[0].Value = estudiantes.ElementAt(k).codigo;
+                dataGridView1.Rows[k].Cells[1].Value = estudiantes.ElementAt(k).apellidos;
+                dataGridView1.Rows[k].Cells[2].Value = estudiantes.ElementAt(k).nombres;
+                dataGridView1.Rows[k].Cells[3].Value = $"{Math.Round(estudiantes.ElementAt(k).promedio, 2)}%";
+                
+            }
         }
     }
 }

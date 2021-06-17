@@ -7,6 +7,6 @@ namespace Entidades
         public Int64 id { get; set; }
         public Int64 id_evaluacion { get; set; }
         public Int64 id_estudiante { get; set; }
-        public float valor { get; set; }
+        public double valor { get; set; }
     }
 }

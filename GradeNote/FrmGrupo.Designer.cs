@@ -101,6 +101,7 @@ namespace CapaPresentacion
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "FrmGrupo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Grupo";
             this.Load += new System.EventHandler(this.FrmGrupo_Load);
             this.menuStrip1.ResumeLayout(false);

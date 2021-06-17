@@ -11,7 +11,7 @@ namespace CapaNegocios
     public class CN_Materia
     {
         MateriaDB materiaDB = new();
-
+        CNNota cnNota = new();
         public System.Data.DataTable ObtenerDataTableMaterias(int idgrupo)
         {
             return materiaDB.ObtenerMateriaDeGrupo(idgrupo);
@@ -36,5 +36,11 @@ namespace CapaNegocios
         {
             materiaDB.Eliminar(idMateria);
         }
+        
+        public double NotaParcialDeEstudiante(long idEstudiante, long idMateria, long parcial)
+        {
+            return cnNota.ObtenerNotaDe(idEstudiante, idMateria, parcial);
+        }
+       
     }
 }

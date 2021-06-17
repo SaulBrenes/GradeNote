@@ -1,5 +1,7 @@
 ﻿using CapaDatos;
 using Entidades;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CapaNegocios
 {
@@ -31,6 +33,24 @@ namespace CapaNegocios
             notasDB.idEvaluacion = id_evaluacion;
             notasDB.numeroParcial = parcial;
             notasDB.Eliminar(0);
+        }
+
+        public double ObtenerNotaDe(long idEstudiante, long idMateria, long parcial)
+        {
+            notasDB.idEstudiante = idEstudiante;
+            notasDB.idmateria = idMateria;
+            notasDB.numeroParcial = parcial;
+            List<Nota> notas = notasDB.ObtenerListaDeNotasDelEMP();
+            if(notas == null)
+            {
+                return 0;
+            }
+            if(notas.Count == 0)
+            {
+                return 0;
+            }
+
+            return notasDB.ObtenerListaDeNotasDelEMP().Sum(n => n.valor);
         }
     }
 }

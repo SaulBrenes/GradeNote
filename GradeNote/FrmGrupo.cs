@@ -68,6 +68,7 @@ namespace CapaPresentacion
             frmBoletin = new FrmBoletin();
             string nombre = $" del {grupo.nombre}";
             frmBoletin.Text += nombre;
+            frmBoletin.id_grupo = (int)grupo.id;
            // frmBoletin.MdiParent = this;
             frmBoletin.ShowDialog();
         }

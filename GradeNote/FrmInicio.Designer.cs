@@ -329,6 +329,7 @@ namespace GradeNote
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Grupos Activos:";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // pictureBox1
             // 
@@ -418,6 +419,7 @@ namespace GradeNote
             this.flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(5);
             this.flowLayoutPanel2.Size = new System.Drawing.Size(138, 165);
             this.flowLayoutPanel2.TabIndex = 4;
+            this.flowLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel2_Paint);
             // 
             // label10
             // 
@@ -551,6 +553,7 @@ namespace GradeNote
             this.ClientSize = new System.Drawing.Size(704, 393);
             this.Controls.Add(this.splitContainer1);
             this.Name = "FrmInicio";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "GradeNote";
             this.Shown += new System.EventHandler(this.FrmInicio_Shown);
             this.splitContainer1.Panel1.ResumeLayout(false);

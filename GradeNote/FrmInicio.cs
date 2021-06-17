@@ -273,5 +273,15 @@ namespace GradeNote
             }
             cmbGrupos.SelectedIndex = grupos.Count - 1;
         }
+
+        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

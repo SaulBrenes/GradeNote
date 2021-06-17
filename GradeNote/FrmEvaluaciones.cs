@@ -62,7 +62,7 @@ namespace CapaPresentacion
 
             if (!SeAgrega)
             {
-                MessageBox.Show("No se pueden agregar más evaluaciones. Alcanzo el 100%");
+                MessageBox.Show("No se pueden agregar más evaluaciones. Alcanzo el 100% en el Parcial");
                 return;
             }
             //*****Al agregar que el valor no sea cero
@@ -98,6 +98,7 @@ namespace CapaPresentacion
             txtNombre.ReadOnly = true;
             nudParcial.Enabled = false;
             nudValor.Enabled = false;
+            nudValor.Value = 1;
             SeleccionarFila(dgvEvaluaciones.Rows.Count - 1);
         }
 
@@ -134,8 +135,7 @@ namespace CapaPresentacion
             };
 
             CNnotas.EditarNotaAEstudiante(notaEdit, evaluaciones.ElementAt(indexEva).numeroParcial);
-            dgvEstudiantes.DataSource = null;
-            dgvEstudiantes.DataSource = CNnotas.ObtenerNotasEvaluacion(indexEva, evaluaciones.ElementAt(indexEva).numeroParcial);
+            SeleccionarFila(indexEva);
             nudNotaEstudiante.Value = 0;
         }
 
@@ -163,6 +163,10 @@ namespace CapaPresentacion
             CNnotas.EliminarNotas(seleccinada.numeroParcial, seleccinada.id);
             CNevaluacion.EliminarEvaluacion(seleccinada.id);
             CargandoEvaluaciones();
+            dgvEstudiantes.DataSource = null;
+            txtNombre.Text = "";
+            nudParcial.Value = 1;
+            nudValor.Value = 1;
 
         }
 
@@ -183,9 +187,8 @@ namespace CapaPresentacion
                 {
                     return;
                 }
-
-                int index = dgvEvaluaciones.Rows[0].Index;
-                Evaluacion seleccinada = evaluaciones.ElementAt(index);
+                dgvEvaluaciones.Rows[0].Selected = true;
+                Evaluacion seleccinada = evaluaciones.ElementAt(0);
                 dgvEstudiantes.DataSource = CNnotas.ObtenerNotasEvaluacion((int)seleccinada.id, seleccinada.numeroParcial);
                 txtNombre.Text = seleccinada.nombre;
                 nudParcial.Value = seleccinada.numeroParcial;
@@ -239,6 +242,7 @@ namespace CapaPresentacion
             }
             else
             {
+                nudValor.Value = 1;
                 SeAgrega = true;
             }
         }
@@ -271,6 +275,26 @@ namespace CapaPresentacion
             nudNotaEstudiante.Value = 0;
             nudNotaEstudiante.Maximum = seleccinada.valor;
 
+        }
+
+        private void dgvEvaluaciones_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvEvaluaciones.SelectedRows.Count <= 0)
+            {
+                return;
+            }
+
+            //Indice de la primera fila seleccionada
+            int index = dgvEvaluaciones.SelectedRows[0].Index;
+            //Obteniendo evaluacion seleccionada y notas de la evaluacion seleccionada
+            Evaluacion seleccinada = evaluaciones.ElementAt(index);
+            dgvEstudiantes.DataSource = CNnotas.ObtenerNotasEvaluacion((int)seleccinada.id, seleccinada.numeroParcial);
+            txtNombre.Text = seleccinada.nombre;
+            nudParcial.Value = seleccinada.numeroParcial;
+            nudValor.Maximum = 100;
+            nudValor.Value = seleccinada.valor;
+            nudNotaEstudiante.Maximum = seleccinada.valor;
+            btnDarNota.Enabled = true;
         }
     }
 }

@@ -12,5 +12,7 @@ namespace Entidades
         public string codigo { get; set; }
         public List<Asistencia> asistencias { get; set; }
         public float pasistencias { get; set; }
+
+        public double promedio { get; set; }
     }
 }

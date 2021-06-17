@@ -275,6 +275,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmEstudiantes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Estudiantes";
             this.Load += new System.EventHandler(this.FrmEstudiantes_Load);
             this.groupBox1.ResumeLayout(false);

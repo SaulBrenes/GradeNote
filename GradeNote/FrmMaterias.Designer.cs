@@ -198,6 +198,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label1);
             this.Name = "FrmMaterias";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Materias";
             this.Shown += new System.EventHandler(this.FrmMaterias_Shown);
             this.flowLayoutPanel1.ResumeLayout(false);
