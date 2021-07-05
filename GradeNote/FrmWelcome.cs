@@ -33,8 +33,15 @@ namespace CapaPresentacion
                 timer1.Stop();
                 this.Hide();
                 FrmInicio frmInicio = new FrmInicio();
+                frmInicio.FormClosed += CerrarAplicacion;
                 frmInicio.ShowDialog();
+                
             }
+        }
+
+        private void CerrarAplicacion(object sender, FormClosedEventArgs e)
+        {
+            this.Close();
         }
 
     }

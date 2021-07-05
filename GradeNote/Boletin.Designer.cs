@@ -87,7 +87,7 @@ namespace CapaPresentacion
             this.dgvBoletin.Name = "dgvBoletin";
             this.dgvBoletin.ReadOnly = true;
             this.dgvBoletin.RowTemplate.Height = 25;
-            this.dgvBoletin.Size = new System.Drawing.Size(491, 314);
+            this.dgvBoletin.Size = new System.Drawing.Size(491, 169);
             this.dgvBoletin.TabIndex = 2;
             // 
             // groupBox1
@@ -208,21 +208,23 @@ namespace CapaPresentacion
             // 
             this.lblpromedio.AutoSize = true;
             this.lblpromedio.Font = new System.Drawing.Font("Sylfaen", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.lblpromedio.Location = new System.Drawing.Point(103, 556);
+            this.lblpromedio.Location = new System.Drawing.Point(103, 394);
             this.lblpromedio.Name = "lblpromedio";
             this.lblpromedio.Size = new System.Drawing.Size(61, 22);
             this.lblpromedio.TabIndex = 11;
             this.lblpromedio.Text = "TEXTO";
+            this.lblpromedio.Click += new System.EventHandler(this.lblpromedio_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Sylfaen", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(21, 556);
+            this.label9.Location = new System.Drawing.Point(21, 394);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(78, 22);
             this.label9.TabIndex = 10;
             this.label9.Text = "Promedio:";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // Boletin
             // 
@@ -234,7 +236,7 @@ namespace CapaPresentacion
             this.Controls.Add(this.dgvBoletin);
             this.Controls.Add(this.lblnombre);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Boletin";
             this.Size = new System.Drawing.Size(547, 726);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBoletin)).EndInit();

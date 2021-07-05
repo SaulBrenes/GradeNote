@@ -58,6 +58,16 @@ namespace CapaPresentacion
         {
             set => lblProfesor.Text = value;
         }
+
+        private void lblpromedio_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     
